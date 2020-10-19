@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm start` for a development server that runs the documentation project. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build library changes
-Run `npm lib` to build the library
+Run `npm lib:build` to build the library
 
 ## Import library
 Import as a normal node module: `import { SimpleCoreUIModule } from 'simplecore-ui';`
