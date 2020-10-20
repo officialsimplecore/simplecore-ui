@@ -6,6 +6,10 @@
  * internal SimpleCore projects
  */
 
+/**
+ * Warning: Do not use this module unless otherwise noted
+ */
+
 import { NgModule } from '@angular/core';
 
 @NgModule({
