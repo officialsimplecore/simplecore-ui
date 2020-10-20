@@ -9,4 +9,4 @@ import { SimplecoreUiComponent } from './simplecore-ui.component';
   ],
   exports: [SimplecoreUiComponent]
 })
-export class SimplecoreUiModule { }
+export class SimpleCoreUIModule { }

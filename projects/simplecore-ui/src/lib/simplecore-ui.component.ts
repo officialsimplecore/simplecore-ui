@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright 2020 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +15,7 @@ import { Component, OnInit } from '@angular/core';
       simplecore-ui works!
     </p>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class SimplecoreUiComponent implements OnInit {
 
