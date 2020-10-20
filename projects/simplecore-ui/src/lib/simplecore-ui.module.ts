@@ -1,12 +1,17 @@
+/**
+ * @license
+ * Copyright 2020 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+
 import { NgModule } from '@angular/core';
-import { SimplecoreUiComponent } from './simplecore-ui.component';
-
-
 
 @NgModule({
-  declarations: [SimplecoreUiComponent],
+  declarations: [],
   imports: [
   ],
-  exports: [SimplecoreUiComponent]
+  exports: []
 })
 export class SimpleCoreUIModule { }
