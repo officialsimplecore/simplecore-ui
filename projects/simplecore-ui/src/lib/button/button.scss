@@ -18,4 +18,9 @@
   background-color: $primary-color;
   cursor: pointer;
   border: none;
+  transition: all $fade-speed;
+}
+
+.core-button:hover {
+  background-color: $primary-color-push;
 }
