@@ -12,6 +12,11 @@
 $primary-color: #FB2B43;
 $secondary-color: #1A73F5;
 
+$primary-color-push: #de1a31;
+
+$primary-color-fade: #ff475b;
+$secondary-fade: #3286ff;
+
 $light-text: #FFFFFF;
 $dark-text: #202124;
 $medium-text: #5F6368;
@@ -40,3 +45,6 @@ $headline-font: 20px;
 $body-font: 16px;
 $action-font: 16px;
 $caption-font: 12px;
+
+// Animations
+$fade-speed: 300ms;
