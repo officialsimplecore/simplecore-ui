@@ -4,20 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 // UI Modules
-import { SimpleCoreUIModule } from 'simplecore-ui';
-
 
 // Components
 import { AppComponent } from './app.component';
+import {CoreButtonModule} from 'projects/simplecore-ui/src/lib/button/public-api';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SimpleCoreUIModule
+    CoreButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
