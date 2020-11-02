@@ -6,8 +6,8 @@
  * internal SimpleCore projects
  */
 
-export * from './lib/simplecore-ui.module';
+import { CoreButtonModule } from './lib/button'
 
-export * from './lib/button/button.module'
-
-export * from './lib/button/button';
+export {
+  CoreButtonModule
+} from './lib/button/index'

@@ -1,0 +1,21 @@
+/**
+ * @license
+ * Copyright 2020 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+
+@import "../theme.scss";
+
+.core-button {
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: $action-corner-radius;
+  font-family: $primary-font;
+  font-size: $body-font;
+  font-weight: 500;
+  background-color: $primary-color;
+  cursor: pointer;
+  border: none;
+}

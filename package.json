@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "lib:build": "ng build simplecore-ui --prod"
+    "lib:build": "ng build simplecore-ui",
+    "lib:build:prod": "ng build simplecore-ui --prod"
   },
   "private": true,
   "dependencies": {
