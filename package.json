@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lib:build": "ng build simplecore-ui",
-    "lib:build:prod": "ng build simplecore-ui --prod"
+    "lib:build:prod": "ng build simplecore-ui --prod",
+    "lib:publish": "ng build simplecore-ui --prod && cd dist/simplecore-ui && npm pack && npm publish"
   },
   "private": true,
   "dependencies": {
