@@ -10,12 +10,11 @@
 
 .core-button {
   color: #fff;
-  padding: 12px 14px;
+  padding: 10px 14px;
   border-radius: $action-corner-radius;
   font-family: $primary-font;
   font-size: $body-font;
   font-weight: 500;
-  background-color: $primary-color;
   cursor: pointer;
   border: none;
   transition: all $fade-speed;
@@ -23,4 +22,29 @@
 
 .core-button:hover {
   background-color: $primary-color-push;
+}
+
+.core-button:active {
+  background-color: $primary-color-force;
+}
+
+.core-button__size-sm {
+  padding: 8px 10px;
+  font-size: $body-font;
+}
+
+.core-button__size-md {
+  padding: 11px 14px;
+}
+
+.core-button__size-lg {
+  padding: 14px 18px;
+}
+
+.core-button__background-primary {
+  background-color: $primary-color;
+}
+
+.core-button__background-secondary {
+  background-color: $secondary-color;
 }

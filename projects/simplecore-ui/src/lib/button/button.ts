@@ -17,9 +17,33 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncap
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonDirective implements OnInit {
+  @Input() size: string = 'md';
+  @Input() themeColor: string = 'primary';
+
   constructor(private element: ElementRef) {
   }
   ngOnInit(): void {
     this.element.nativeElement.classList.add("core-button");
+
+    switch(this.size) {
+      case "sm": // Small
+        this.element.nativeElement.classList.add("core-button__size-sm");
+        break;
+      case "lg": // Large
+        this.element.nativeElement.classList.add("core-button__size-lg");
+        break;
+      default: // (md) Medium
+        this.element.nativeElement.classList.add("core-button__size-md");
+        break;
+    }
+
+    switch (this.themeColor) {
+      case "secondary":
+        this.element.nativeElement.classList.add("core-button__background-secondary");
+        break;
+      default: // Primary
+        this.element.nativeElement.classList.add("core-button__background-primary");
+        break;
+    }
   }
 }
