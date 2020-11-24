@@ -6,8 +6,5 @@
  * internal SimpleCore projects
  */
 
-export * from './lib/simplecore-ui.module';
-
-export * from './lib/button/index';
-
-export * from './lib/input/index';
+export * from './input.module';
+export * from './input';

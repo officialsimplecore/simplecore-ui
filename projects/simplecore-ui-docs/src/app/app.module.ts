@@ -9,16 +9,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CoreButtonModule} from 'projects/simplecore-ui/src/lib/button/public-api';
 import { ButtonComponent } from './button/button.component';
+import { InputComponent } from './input/input.component';
+import {CoreInputModule} from "projects/simplecore-ui/src/lib/input";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreButtonModule
+    CoreButtonModule,
+    CoreInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
