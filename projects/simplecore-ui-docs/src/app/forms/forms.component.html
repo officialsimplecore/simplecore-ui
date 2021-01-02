@@ -1,0 +1,12 @@
+<form #form="ngForm" (ngSubmit)="logForm(form.value)">
+  <input name="firstName" ngModel coreInput type="text" id="name" placeholder="Name"/>
+  <label coreLabel for="name">Name</label>
+  <select coreSelect name="Test" id="option" ngModel>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+  <label coreSelectLabel for="option">Name</label>
+  <button coreButton type="submit">Submit</button>
+</form>
