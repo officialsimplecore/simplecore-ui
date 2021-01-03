@@ -9,10 +9,13 @@
 @import "../theme.scss";
 
 .core-card {
-  height: 250px;
-  width: 50px;
-  border-radius: 50px;
-  background: #e0e0e0;
-  box-shadow:  25px 25px 50px #bebebe,
-  -25px -25px 50px #ffffff;
+  height: 100%;
+  width: 100%;
+  border-radius: $rounded-corner-radius;
+  background-color: #fff;
+  padding: $internal-padding;
+}
+
+.core-card__outline {
+  border: 1px solid $active-color;
 }

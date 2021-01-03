@@ -6,20 +6,42 @@
  * internal SimpleCore projects
  */
 
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnInit, Renderer2,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'core-card',
   exportAs: 'coreCard',
-  template: '<div class="core-card"><ng-content></ng-content></div>',
-  styleUrls: ['card.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: '<div #cardEl class="core-card"><ng-content></ng-content></div>',
+  styleUrls: ['card.scss']
 })
-export class CoreCard implements OnInit {
-  constructor(private element: ElementRef) {
-  }
-  ngOnInit(): void {
+export class CoreCard implements AfterViewInit {
+  @Input() neumorphic: boolean = true;
+  @ViewChild('cardEl') cardEl: ElementRef;
 
+  constructor(private element: ElementRef, private renderer: Renderer2) {
+  }
+
+  // Find calculated width of the object to determine how to place the box shadow
+  ngAfterViewInit(): void {
+    const cardElement = this.cardEl.nativeElement;
+    if (this.neumorphic) {
+      const offset = cardElement.offsetHeight / 17;
+      const blurOffset = offset * 3;
+      this.renderer.setStyle(cardElement,
+        'box-shadow', `${offset}px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
+              -${offset}px -${offset}px ${blurOffset}px rgba(255,255,255,0.5)`);
+    } else {
+      this.renderer.addClass(cardElement, 'core-card__outline');
+    }
   }
 }
