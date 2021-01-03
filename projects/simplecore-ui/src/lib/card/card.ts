@@ -28,7 +28,7 @@ export class CoreCard implements AfterViewInit {
   @Input() neumorphic: boolean = true;
   @ViewChild('cardEl') cardEl: ElementRef;
 
-  constructor(private element: ElementRef, private renderer: Renderer2) {
+  constructor(private renderer: Renderer2) {
   }
 
   // Find calculated width of the object to determine how to place the box shadow
