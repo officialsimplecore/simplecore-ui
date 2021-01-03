@@ -7,6 +7,9 @@
  */
 
 /*Global Variables*/
+* {
+  box-sizing: border-box;
+}
 
 // Layout Colors
 $primary-color: #FB2B43;
@@ -27,9 +30,10 @@ $active-color: #e7e7e7;
 
 // Spacing
 $vertical-margin: 30px;
+$internal-padding: 22px;
 
 // Border Radii
-$rounded-corner-radius: 12px;
+$rounded-corner-radius: 18px;
 $pill-corner-radius: 33px;
 $action-corner-radius: 6px;
 
