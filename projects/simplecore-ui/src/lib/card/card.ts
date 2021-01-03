@@ -9,13 +9,10 @@
 import {ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'input[coreCard]',
+  selector: 'core-card',
   exportAs: 'coreCard',
-  template: '<ng-content></ng-content>',
+  template: '<div class="core-card"><ng-content></ng-content></div>',
   styleUrls: ['card.scss'],
-  host: {
-    'class': 'core-card',
-  },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -23,6 +20,6 @@ export class CoreCard implements OnInit {
   constructor(private element: ElementRef) {
   }
   ngOnInit(): void {
-    // this.element.nativeElement.classList.add("core-input");
+
   }
 }

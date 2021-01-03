@@ -17,4 +17,4 @@ import {CoreCard} from "./card";
   ],
   exports:[CoreCard]
 })
-export class CoreInputModule { }
+export class CoreCardModule { }
