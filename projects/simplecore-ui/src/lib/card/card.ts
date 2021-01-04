@@ -35,11 +35,11 @@ export class CoreCard implements AfterViewInit {
   ngAfterViewInit(): void {
     const cardElement = this.cardEl.nativeElement;
     if (this.neumorphic) {
-      const offset = cardElement.offsetHeight / 17;
-      const blurOffset = offset * 3;
+      const offset = cardElement.offsetHeight / 13;
+      const blurOffset = offset * 1.2;
       this.renderer.setStyle(cardElement,
-        'box-shadow', `${offset}px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
-              -${offset}px -${offset}px ${blurOffset}px rgba(255,255,255,0.5)`);
+        'box-shadow', `0px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
+              -0px -${offset}px ${blurOffset}px rgba(255,255,255,0.85)`);
     } else {
       this.renderer.addClass(cardElement, 'core-card__outline');
     }
