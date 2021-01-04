@@ -1,24 +1,35 @@
-# SimplecoreUi
+# Official SimpleCoreUI
+The SimpleCore team maintains and builds this library of common UI components, primarly for use in internal SimpleCore web applications.
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+## Docs server
 
-## Code scaffolding
+Run `npm start` for a development server that runs the documentation project. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name --project simplecore-ui` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project simplecore-ui`.
-> Note: Don't forget to add `--project simplecore-ui` or else it will be added to the default project in your `angular.json` file. 
+## Build library changes
+Run `npm lib:build` to build the library
 
-## Build
+## Import library
+Import as a normal node module: `import { SimpleCoreUIModule } from 'simplecore-ui';`
 
-Run `ng build simplecore-ui` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Git Commit Messages
+- Use the topic prefix that corresponds with the change you have made (list below)
+- If necessary, add a class prefix (Ex. View/ExploreCourses; Ex. Controller/Static)
+- Capitalize the first letter of the prefix and the message that follows
+- Use imperative verbs in subject line word (Create project; Modify readme)
+- Concise subject line (it is OK to break the 50 character rule because we have prefixes)
+- One line break between subject line and body
+- No full stops in subject line
+- Use full stops in body
+- Write body in plain English; do not worry about the imperative verb tense; be as descriptive as possible and necessary
+- Wrap the body text as 72 characters
 
-## Publishing
-
-After building your library with `ng build simplecore-ui`, go to the dist folder `cd dist/simplecore-ui` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test simplecore-ui` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Topic Prefixes
+- Chore:
+- Docs:
+- Style:
+- Feature:
+- Update:
+- Fix:
+- Refactor:
+- Test:
+- Package:
