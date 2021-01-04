@@ -1,13 +1,12 @@
 /**
  * @license
- * Copyright 2020 SimpleCore All Rights Reserved.
+ * Copyright 2021 SimpleCore All Rights Reserved.
  *
  * Use of this source code is governed private licensing for
  * internal SimpleCore projects
  */
 
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -19,26 +18,36 @@ import {
 @Component({
   selector: 'select[coreSelect]',
   exportAs: 'coreSelect',
-  template: '<option class="core-select__placeholder-option" value="" selected>{{corePlaceholderText}}</option><ng-content></ng-content>',
+  template: '<div class="core-select-arrow"><svg viewBox="0 0 24 24" role="presentation" class="chakra-select__icon" focusable="false" aria-hidden="true" style="width: 1em; height: 1em; color: currentcolor;"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></div><option class="core-select__placeholder-option" value="" disabled selected>{{corePlaceholderText}}</option><ng-content></ng-content>',
   styleUrls: ['select.scss'],
   host: {
     'class': 'core-select',
   },
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
-export class CoreSelect implements OnInit, AfterViewInit {
-  @Input() corePlaceholderText: string = "Choose";
+export class CoreSelect implements OnInit {
+  @Input() corePlaceholderText: string = "Select options";
 
   constructor(private element: ElementRef) {
   }
   ngOnInit(): void {
+    this.toggleLabelFloating();
   }
-  ngAfterViewInit() {
-    console.log(this.element.nativeElement.children[0].selected);
+
+  private toggleLabelFloating(): void {
+    this.element.nativeElement.addEventListener("change", () => {
+      const floatingLabelElement = this.element.nativeElement.nextElementSibling;
+      if (!!floatingLabelElement) {
+        const placeholderOptionElement = this.element.nativeElement.children[0];
+        if (!placeholderOptionElement.selected) {
+          floatingLabelElement.classList.add("core-select-label__floating");
+        } else {
+          floatingLabelElement.classList.remove("core-select-label__floating");
+        }
+      }
+    });
   }
 }
-
 
 @Component({
   selector: 'label[coreSelectLabel]',
@@ -52,9 +61,8 @@ export class CoreSelect implements OnInit, AfterViewInit {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoreSelectLabel implements OnInit {
-  constructor(private element: ElementRef) {
+  constructor() {
   }
   ngOnInit(): void {
-    // this.element.nativeElement.classList.add("core-label");
   }
 }

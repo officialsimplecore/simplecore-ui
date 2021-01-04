@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2020 SimpleCore All Rights Reserved.
+ * Copyright 2021 SimpleCore All Rights Reserved.
  *
  * Use of this source code is governed private licensing for
  * internal SimpleCore projects
@@ -13,6 +13,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+  cursor: pointer;
 
   font-size: 16px;
   padding: 14px 15px;
@@ -23,6 +24,18 @@
     outline: 0;
     box-shadow: 0;
   }
+
+  .core-select-arrow {
+    z-index: 100;
+    color: rgba(0,0,0,.54);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    margin: 0 4px;
+  }
+
 }
 
 .core-select-label {
@@ -40,15 +53,8 @@
   transform-origin: bottom left;
 }
 
-.core-select:focus + .core-select-label,
-#core-select__placeholder-option:not(:checked) + .core-select-label {
+.core-select-label__floating {
   transform: scale(.8) translateY(-35px);
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-.core-select__placeholder-option:has ~ div {
-  box-shadow: 0 0 0 3px lime;
-  color: red;
-  height: 100px;
-  background-color: #000;
 }

@@ -1,3 +1,4 @@
+
 <form #form="ngForm" (ngSubmit)="logForm(form.value)">
   <input name="firstName" ngModel coreInput type="text" id="name" placeholder="Name"/>
   <label coreLabel for="name">Name</label>
@@ -7,7 +8,7 @@
     <option value="mercedes">Mercedes</option>
     <option value="audi">Audi</option>
   </select>
-  <label coreSelectLabel for="option">Name</label>
+  <label coreSelectLabel for="option">Car Make</label>
   <div></div>
   <button coreButton type="submit">Submit</button>
 </form>
