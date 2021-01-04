@@ -15,6 +15,8 @@ import {CoreInputModule} from "projects/simplecore-ui/src/lib/input";
 import { SelectComponent } from './select/select.component';
 import {CoreSelectModule} from "projects/simplecore-ui/src/lib/select";
 import { FormsComponent } from './forms/forms.component';
+import { CardComponent } from './card/card.component';
+import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { FormsComponent } from './forms/forms.component';
     InputComponent,
     SelectComponent,
     FormsComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { FormsComponent } from './forms/forms.component';
     CoreButtonModule,
     CoreInputModule,
     CoreSelectModule
+    CoreCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

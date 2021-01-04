@@ -1,0 +1,21 @@
+﻿/**
+ * @license
+ * Copyright 2021 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+
+@import "../theme.scss";
+
+.core-card {
+  height: 100%;
+  width: 100%;
+  border-radius: $rounded-corner-radius;
+  background-color: #fff;
+  padding: $internal-padding;
+}
+
+.core-card__outline {
+  border: 1px solid $active-color;
+}
