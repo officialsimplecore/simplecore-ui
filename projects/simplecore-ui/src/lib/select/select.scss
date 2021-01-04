@@ -43,17 +43,18 @@
   position: relative;
   top: -38px;
   pointer-events: none;
-  transition: 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
   font-family: "Segoe UI", sans-serif;
   padding: 0 12px;
   left: 5px;
   background-color: $background-color;
   overflow: visible;
-  width: max-content;
+  width: 100%;
   transform-origin: bottom left;
 }
 
 .core-select-label__floating {
+  width: max-content;
   transform: scale(.8) translateY(-35px);
   white-space: nowrap;
   text-overflow: ellipsis;
