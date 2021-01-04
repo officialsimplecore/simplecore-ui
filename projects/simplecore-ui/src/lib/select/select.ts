@@ -6,12 +6,20 @@
  * internal SimpleCore projects
  */
 
-import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'select[coreSelect]',
   exportAs: 'coreSelect',
-  template: '<option value="" disabled selected hidden>{{corePlaceholderText}}</option><ng-content></ng-content>',
+  template: '<option class="core-select__placeholder-option" value="" selected>{{corePlaceholderText}}</option><ng-content></ng-content>',
   styleUrls: ['select.scss'],
   host: {
     'class': 'core-select',
@@ -19,12 +27,15 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncap
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoreSelect implements OnInit {
+export class CoreSelect implements OnInit, AfterViewInit {
   @Input() corePlaceholderText: string = "Choose";
 
   constructor(private element: ElementRef) {
   }
   ngOnInit(): void {
+  }
+  ngAfterViewInit() {
+    console.log(this.element.nativeElement.children[0].selected);
   }
 }
 
