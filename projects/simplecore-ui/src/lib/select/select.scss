@@ -8,12 +8,14 @@
 @import "../theme.scss";
 
 .core-select {
+  font-family: $primary-font;
   width: 100%;
   display: block;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
+  background-color: $background-color;
 
   font-size: 16px;
   padding: 14px 15px;
@@ -44,12 +46,12 @@
   top: -38px;
   pointer-events: none;
   transition: transform 250ms ease-in-out;
-  font-family: "Segoe UI", sans-serif;
+  font-family: $primary-font;
   padding: 0 12px;
   left: 5px;
   background-color: $background-color;
   overflow: visible;
-  width: 100%;
+  width: calc(100% - 5px - 12px);
   transform-origin: bottom left;
 }
 
