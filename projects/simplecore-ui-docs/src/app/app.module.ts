@@ -24,7 +24,7 @@ import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
     ButtonComponent,
     InputComponent,
     SelectComponent,
-    FormsComponent
+    FormsComponent,
     CardComponent
   ],
   imports: [
@@ -33,7 +33,7 @@ import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
     AppRoutingModule,
     CoreButtonModule,
     CoreInputModule,
-    CoreSelectModule
+    CoreSelectModule,
     CoreCardModule
   ],
   providers: [],
