@@ -20,12 +20,21 @@
   transition: all $fade-speed;
 }
 
-.core-button:hover {
+.core-button__background-primary:hover {
   background-color: $primary-color-push;
 }
 
-.core-button:active {
+.core-button__background-secondary:hover {
+  background-color: $secondary-color-push;
+}
+
+.core-button__background-primary:active {
   background-color: $primary-color-force;
+}
+
+.core-button__background-secondary:active {
+  background-color: $secondary-color-force;
+
 }
 
 .core-button__size-sm {
