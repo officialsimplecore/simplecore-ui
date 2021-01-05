@@ -6,6 +6,7 @@
  * internal SimpleCore projects
  */
 @import "../theme.scss";
+@import "label.mixin";
 
 .core-input {
   font-family: $primary-font;
@@ -15,6 +16,7 @@
   border-radius: $action-corner-radius;
   border: 1px solid $dark-text;
   background-color: $background-color;
+  width: 100%;
   &:focus {
     outline: 0;
     box-shadow: 0;
@@ -26,18 +28,8 @@
 }
 
 .core-label {
-  display: block;
-  position: relative;
-  top: -38px;
-  pointer-events: none;
-  transition: 250ms ease-in-out;
-  font-family: $primary-font;
-  padding: 0 12px;
-  left: 5px;
-  background-color: $background-color;
-  overflow: visible;
+  @include core-label;
   width: max-content;
-  transform-origin: bottom left;
 }
 
 .core-input:focus + .core-label,
