@@ -1,4 +1,18 @@
-﻿@mixin core-label {
+﻿@mixin core-inputs {
+  font-family: $primary-font;
+  font-size: $body-font;
+  padding: 14px 15px;
+  height: 54px;
+  border-radius: $action-corner-radius;
+  border: 1px solid $dark-text;
+  background-color: $background-color;
+  width: 100%;
+  &:focus {
+    outline: 0;
+  }
+}
+
+@mixin core-label {
   display: block;
   position: relative;
   top: -37px;
@@ -8,6 +22,11 @@
   padding: 0 12px;
   left: 5px;
   background-color: $background-color;
-  overflow: visible;
   transform-origin: bottom left;
+}
+
+@mixin core-label-float {
+  transform: scale(.8) translateY(-35px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

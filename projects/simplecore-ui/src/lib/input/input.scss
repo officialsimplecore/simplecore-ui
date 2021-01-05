@@ -9,18 +9,7 @@
 @import "label.mixin";
 
 .core-input {
-  font-family: $primary-font;
-  font-size: 16px;
-  padding: 14px 15px;
-  height: 54px;
-  border-radius: $action-corner-radius;
-  border: 1px solid $dark-text;
-  background-color: $background-color;
-  width: 100%;
-  &:focus {
-    outline: 0;
-    box-shadow: 0;
-  }
+  @include core-inputs;
 }
 
 .core-input::placeholder {
@@ -34,9 +23,7 @@
 
 .core-input:focus + .core-label,
 .core-input:not(:placeholder-shown) + .core-label {
-  transform: scale(.8) translateY(-35px);
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  @include core-label-float;
 }
 
 // Correct input background color change on autofill

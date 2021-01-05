@@ -9,36 +9,19 @@
 @import "../input/label.mixin.scss";
 
 .core-select {
-  font-family: $primary-font;
-  width: 100%;
-  display: block;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: $background-color;
+  @include core-inputs;
 
-  font-size: 16px;
-  padding: 14px 15px;
-  height: 54px;
-  border-radius: $action-corner-radius;
-  border: 1px solid $dark-text;
-  &:focus {
-    outline: 0;
-    box-shadow: 0;
-  }
-
-  .core-select-arrow {
-    z-index: 100;
-    color: rgba(0,0,0,.54);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid;
-    margin: 0 4px;
-  }
-
+  // Not implemented
+  //.core-select-arrow {
+  //  z-index: 100;
+  //  color: rgba(0,0,0,.54);
+  //  width: 0;
+  //  height: 0;
+  //  border-left: 5px solid transparent;
+  //  border-right: 5px solid transparent;
+  //  border-top: 5px solid;
+  //  margin: 0 4px;
+  //}
 }
 
 .core-select-label {
@@ -48,7 +31,5 @@
 
 .core-select-label__floating {
   width: max-content;
-  transform: scale(.8) translateY(-35px);
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  @include core-label-float;
 }

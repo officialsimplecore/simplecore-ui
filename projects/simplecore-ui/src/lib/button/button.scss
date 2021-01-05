@@ -18,6 +18,9 @@
   cursor: pointer;
   border: none;
   transition: all $fade-speed;
+  &:focus {
+    outline: 0;
+  }
 }
 
 .core-button__background-primary:hover {
