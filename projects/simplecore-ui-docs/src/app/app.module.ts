@@ -17,6 +17,7 @@ import {CoreSelectModule} from "projects/simplecore-ui/src/lib/select";
 import { FormsComponent } from './forms/forms.component';
 import { CardComponent } from './card/card.component';
 import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
+import {CorePressableModule} from "../../../simplecore-ui/src/lib/_directives/pressable";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
     CoreButtonModule,
     CoreInputModule,
     CoreSelectModule,
-    CoreCardModule
+    CoreCardModule,
+    CorePressableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
