@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
     <button size="lg" coreButton>Large</button>
 
     <button themeColor="secondary" size="md" coreButton>Small</button>
+
+    <button size="lg" corePressable coreButton>Large with Core Pressable</button>
+    <button size="md" corePressable coreButton>Large with Core Pressable</button>
+    <button size="sm" corePressable coreButton>Smallest</button>
+
   `,
   styleUrls: ['./button.component.scss']
 })
