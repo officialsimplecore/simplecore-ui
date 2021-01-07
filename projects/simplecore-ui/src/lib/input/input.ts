@@ -6,7 +6,15 @@
  * internal SimpleCore projects
  */
 
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'input[coreInput]',
@@ -14,16 +22,30 @@ import {ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewEncapsulatio
   template: '<ng-content></ng-content>',
   styleUrls: ['input.scss'],
   host: {
-    'class': 'core-input',
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoreInput implements OnInit {
-  constructor(private element: ElementRef) {
+  @Input() appearance: string = "outline";
+
+  constructor(private element: ElementRef, private renderer: Renderer2) {
   }
   ngOnInit(): void {
-    // this.element.nativeElement.classList.add("core-input");
+    if (this.appearance === "outline") {
+
+    }
+
+    switch(this.appearance) {
+      case 'outline':
+        // this.element.nativeElement.classList.add("core-input__outline");
+        this.renderer.addClass(this.element.nativeElement, "core-input__outline");
+        break;
+      case 'standard':
+        // this.element.nativeElement.classList.add("core-input__standard");
+        this.renderer.addClass(this.element.nativeElement, "core-input__standard");
+        break;
+    }
   }
 }
 
@@ -39,9 +61,8 @@ export class CoreInput implements OnInit {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoreLabel implements OnInit {
-  constructor(private element: ElementRef) {
+  constructor() {
   }
   ngOnInit(): void {
-    // this.element.nativeElement.classList.add("core-label");
   }
 }

@@ -1,11 +1,23 @@
-﻿@mixin core-inputs {
+﻿@import "../theme.scss";
+
+@mixin core-inputs-outline {
+  @include core-inputs-base;
+  border: 1px solid $dark-text;
+  background-color: $background-color;
+}
+
+@mixin core-inputs-standard {
+  @include core-inputs-base;
+  border: none;
+  background-color: $hover-color;
+}
+
+@mixin core-inputs-base {
   font-family: $primary-font;
   font-size: $body-font;
   padding: 14px 15px;
   height: 54px;
   border-radius: $action-corner-radius;
-  border: 1px solid $dark-text;
-  background-color: $background-color;
   width: 100%;
   &:focus {
     outline: 0;

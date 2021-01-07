@@ -9,19 +9,38 @@
 @import "../input/label.mixin.scss";
 
 .core-select {
-  @include core-inputs;
+  @include core-inputs-outline;
+  -webkit-appearance: none;
 
   // Not implemented
   //.core-select-arrow {
   //  z-index: 100;
   //  color: rgba(0,0,0,.54);
-  //  width: 0;
-  //  height: 0;
   //  border-left: 5px solid transparent;
   //  border-right: 5px solid transparent;
   //  border-top: 5px solid;
   //  margin: 0 4px;
   //}
+}
+
+.core-select::after {
+  content: '<>';
+  font: 17px "Consolas", monospace;
+  color: #333;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 11px;
+  /*Adjust for position however you want*/
+
+  top: 18px;
+  padding: 0 0 2px;
+  border-bottom: 1px solid #999;
+  /*left line */
+
+  position: absolute;
+  pointer-events: none;
 }
 
 .core-select-label {

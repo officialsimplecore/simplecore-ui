@@ -8,11 +8,15 @@
 @import "../theme.scss";
 @import "label.mixin";
 
-.core-input {
-  @include core-inputs;
+.core-input__outline {
+  @include core-inputs-outline;
 }
 
-.core-input::placeholder {
+.core-input__standard {
+  @include core-inputs-standard;
+}
+
+.core-input__outline::placeholder {
   color: transparent;
 }
 
@@ -21,12 +25,12 @@
   width: max-content;
 }
 
-.core-input:focus + .core-label,
-.core-input:not(:placeholder-shown) + .core-label {
+.core-input__outline:focus + .core-label,
+.core-input__outline:not(:placeholder-shown) + .core-label {
   @include core-label-float;
 }
 
 // Correct input background color change on autofill
-.core-input:-webkit-autofill {
+.core-input__outline:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px $background-color inset;
 }
