@@ -2,8 +2,8 @@ name: NPM_PUBLISH
 
 on:
   release:
-    types: [published]
-
+    types: [published, edited]
+  
 jobs:
   build:
     runs-on: ubuntu-latest
