@@ -5,11 +5,14 @@ The SimpleCore team maintains and builds this library of common UI components, p
 
 Run `npm start` for a development server that runs the documentation project. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+Please note that the API is not documented yet as this project is in alpha stages.
+
 ## Build library changes
 Run `npm lib:build` to build the library
 
 ## Import library
 Import as a normal node module: `import { SimpleCoreUIModule } from 'simplecore-ui';`
+- It is recommended to import each component module separately as best practice
 
 ## Git Commit Messages
 - Use the topic prefix that corresponds with the change you have made (list below)
