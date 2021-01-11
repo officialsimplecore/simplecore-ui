@@ -35,8 +35,8 @@ export class CoreCard implements AfterViewInit {
   ngAfterViewInit(): void {
     const cardElement = this.cardEl.nativeElement;
     if (this.neumorphic) {
-      const offset = cardElement.offsetHeight / 13;
-      const blurOffset = offset * 1.2;
+      const offset = cardElement.offsetHeight / 12;
+      const blurOffset = offset * 1.7;
       this.renderer.setStyle(cardElement,
         'box-shadow', `0px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
               -0px -${offset}px ${blurOffset}px rgba(255,255,255,0.85)`);
