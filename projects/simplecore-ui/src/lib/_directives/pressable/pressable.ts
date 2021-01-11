@@ -34,7 +34,10 @@ export class PressableDirective implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     // Clean up
-    this.element.nativeElement.removeAllListeners();
+      // Remove event listeners causes problems with server side renderering
+      // Modern browsers do garbage collection (IE 10+) on Event Listeners so
+      // the practice of removing listeners is no longer necessary.
+    // this.element.nativeElement.removeAllListeners();
   }
 
   private setPressed(pressIn: boolean): void {
