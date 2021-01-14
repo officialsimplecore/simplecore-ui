@@ -18,6 +18,8 @@ import { FormsComponent } from './forms/forms.component';
 import { CardComponent } from './card/card.component';
 import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
 import {CorePressableModule} from "../../../simplecore-ui/src/lib/_directives/pressable";
+import {ModalComponent} from "./modal/modal.component";
+import {CoreModalModule} from "../../../simplecore-ui/src/lib/modal";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {CorePressableModule} from "../../../simplecore-ui/src/lib/_directives/pr
     InputComponent,
     SelectComponent,
     FormsComponent,
-    CardComponent
+    CardComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import {CorePressableModule} from "../../../simplecore-ui/src/lib/_directives/pr
     CoreInputModule,
     CoreSelectModule,
     CoreCardModule,
-    CorePressableModule
+    CorePressableModule,
+    CoreModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

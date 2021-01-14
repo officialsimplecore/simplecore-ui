@@ -17,3 +17,5 @@ export * from './lib/select/index';
 export * from './lib/card/index';
 
 export * from './lib/_directives/pressable/index';
+
+export * from './lib/modal/index';
