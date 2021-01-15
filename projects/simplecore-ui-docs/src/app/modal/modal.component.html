@@ -1,7 +1,23 @@
 <button coreButton (click)="modal.toggleModal(true)">Open Modal</button>
 
-<core-modal [open]="modalOpen" #modal>
-  <div>Test</div>
-  <span coreModalActionPrimary>Primary</span>
-  <span coreModalActionSecondary>Secondary</span>
+<core-modal [open]="modalOpen" #modal action="true" title="true">
+  <span coreModalTitle>My Modal</span>
+  <form #start #form="ngForm" id="car-journal">
+    <input name="firstName" ngModel coreInput type="text" id="name" placeholder="Name"/>
+    <label coreLabel for="name">Name</label>
+    <select coreSelect name="test" id="option" ngModel>
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    <label coreSelectLabel for="option">Car Make</label>
+  </form>
+
+  <span coreModalActionPrimary>
+    <button type="submit" form="car-journal" coreButton size="sm" themeColor="transparent" (click)="submitIt()">Submit</button>
+  </span>
+  <span coreModalActionSecondary>
+    <button coreButton type="submit" form="car-journal" size="sm" themeColor="transparent" (click)="modal.toggleModal(false)">Cancel</button>
+  </span>
 </core-modal>

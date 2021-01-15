@@ -1,4 +1,12 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+/**
+ * @license
+ * Copyright 2021 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CoreModal} from "simplecore-ui";
 
 @Component({
@@ -7,7 +15,11 @@ import {CoreModal} from "simplecore-ui";
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements AfterViewInit {
-  @ViewChild(CoreModal) modal: CoreModal;
+  // Access modal to close it
+  @ViewChild('modal') modal: CoreModal;
+
+  // Access form element in template for values
+  @ViewChild('form') form: HTMLFormElement;
 
   public modalOpen: boolean = false;
 
@@ -16,7 +28,15 @@ export class ModalComponent implements AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  public openModal(): void {
-    this.modalOpen = true;
+  public submitIt() {
+    this.modal.toggleModal(false);
+    this.logForm();
   }
+
+  // Not that submission
+  private logForm() {
+    console.log(this.form.value);
+  }
+
+
 }

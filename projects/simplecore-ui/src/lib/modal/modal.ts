@@ -10,9 +10,9 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ElementRef, Inject,
+  ElementRef, EventEmitter, Inject,
   Input,
-  OnInit, PLATFORM_ID,
+  OnInit, Output, PLATFORM_ID,
   Renderer2, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
@@ -24,16 +24,19 @@ import {isPlatformBrowser} from "@angular/common";
   template: `
     <div class="modal__container" #modalElement *ngIf="open">
       <div class="modal" coreClickOutside (onClickOutside)="toggleModal(false)">
-        <div>
+        <div class="title" *ngIf="title">
+          <h2><ng-content select="span[coreModalTitle]"></ng-content></h2>
+        </div>
+        <div class="content">
           <ng-content></ng-content>
         </div>
-        <div class="action">
-          <button class="action__primary">
+        <div class="action" *ngIf="action">
+          <span>
             <ng-content select="span[coreModalActionPrimary]"></ng-content>
-          </button>
-          <button class="action__secondary">
+          </span>
+          <span>
             <ng-content select="span[coreModalActionSecondary]"></ng-content>
-          </button>
+          </span>
         </div>
       </div>
     </div>`,
@@ -43,9 +46,13 @@ export class CoreModal implements AfterViewInit {
   @Input() open: boolean = false;
   private isOpening: boolean = false;
 
-  @Input() action: boolean = true;
+  @Input() action: boolean = false;
+  @Input() title: boolean = false;
   @Input() actionPrimary: boolean = true;
   @Input() actionSecondary: boolean = true;
+
+  @Output() primaryButtonPressed: EventEmitter<any> = new EventEmitter<any>();
+  @Output() secondaryButtonPressed: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('modalElement') modalElement: ElementRef | undefined;
 
