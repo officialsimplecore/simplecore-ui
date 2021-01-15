@@ -24,24 +24,18 @@
     border-radius: $action-corner-radius;
     background-color: $light-text;
     box-shadow: 0 2px 10px 0 rgba(0,0,0,.16);
-    * {
-      padding: 18px;
+    --modal-padding: 10px;
+    .content {
+      padding: var(--modal-padding);
     }
     .action {
+      padding: var(--modal-padding);
       border-top: 1px solid $dark-text;
       display: flex;
       flex-direction: row-reverse;
-      button {
-        @include button-base;
+      span {
         margin-left: 5px;
         font-size: 14px;
-      }
-      .action__primary {
-        background-color: $primary-color;
-      }
-
-      .action__secondary {
-        background-color: $secondary-color;
       }
     }
   }

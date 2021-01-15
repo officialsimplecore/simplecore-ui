@@ -10,12 +10,14 @@ import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CoreModal} from "./modal";
 import {CoreClickOutsideModule} from "../_directives/click-outside";
+import {CoreButtonModule} from "../button";
 
 @NgModule({
   declarations: [CoreModal],
   imports: [
     CommonModule,
-    CoreClickOutsideModule
+    CoreClickOutsideModule,
+    CoreButtonModule
   ],
   exports: [CoreModal]
 })

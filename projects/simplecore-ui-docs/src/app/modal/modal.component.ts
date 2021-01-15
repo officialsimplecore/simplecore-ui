@@ -19,4 +19,8 @@ export class ModalComponent implements AfterViewInit {
   public openModal(): void {
     this.modalOpen = true;
   }
+
+  public log(string) {
+    console.log(string)
+  }
 }

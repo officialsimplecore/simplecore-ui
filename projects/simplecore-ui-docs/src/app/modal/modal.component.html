@@ -2,6 +2,10 @@
 
 <core-modal [open]="modalOpen" #modal>
   <div>Test</div>
-  <span coreModalActionPrimary>Primary</span>
-  <span coreModalActionSecondary>Secondary</span>
+  <span coreModalActionPrimary>
+    <button coreButton size="sm" themeColor="transparent">Primary</button>
+  </span>
+  <span (click)="log('test')" coreModalActionSecondary>
+    <button coreButton size="sm" themeColor="transparent">Secondary</button>
+  </span>
 </core-modal>
