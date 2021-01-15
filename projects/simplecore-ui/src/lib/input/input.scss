@@ -12,8 +12,16 @@
   @include core-inputs-outline;
 }
 
-.core-input__outline:hover, .core-input__outline:focus {
+.core-input__outline:hover {
+  @include core-inputs-outline__hover;
+}
+
+.core-input__outline:focus {
   @include core-inputs-outline__focus;
+}
+
+.core-input__outline:focus + .core-label {
+  font-weight: 500;
 }
 
 .core-input__standard {

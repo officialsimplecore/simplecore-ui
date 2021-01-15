@@ -8,10 +8,14 @@
   background-color: $background-color;
 }
 
+@mixin core-inputs-outline__hover {
+  margin-left: -1px;
+  border: 2px solid $active-gray;
+}
+
 @mixin core-inputs-outline__focus {
-  --core-inputs__outline__border-expand: 2px;
-  margin-left: calc((var(--core-inputs__outline__border-expand) - 1px) * -1);
-  border: var(--core-inputs__outline__border-expand) solid $dark-text;
+  margin-left: -1px;
+  border: 2px solid $dark-text;
 }
 
 @mixin core-inputs-standard {

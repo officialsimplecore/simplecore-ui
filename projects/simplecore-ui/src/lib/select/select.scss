@@ -23,8 +23,16 @@
   //}
 }
 
-.core-select:hover, .core-select:focus {
+.core-select:hover {
+  @include core-inputs-outline__hover;
+}
+
+.core-select:focus {
   @include core-inputs-outline__focus;
+}
+
+.core-select:focus + .core-select-label {
+  font-weight: 500;
 }
 
 .core-select::after {
