@@ -7,20 +7,9 @@
  */
 
 @import "../theme.scss";
-
+@import "./button.mixin";
 .core-button {
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: $action-corner-radius;
-  font-family: $primary-font;
-  font-size: $body-font;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  transition: all $fade-speed;
-  &:focus {
-    outline: 0;
-  }
+  @include button-base;
 }
 
 .core-button__background-primary:hover {

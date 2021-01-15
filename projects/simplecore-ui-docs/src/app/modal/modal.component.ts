@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {CoreModal} from "simplecore-ui";
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements AfterViewInit {
+  @ViewChild(CoreModal) modal: CoreModal;
+
+  public modalOpen: boolean = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
   }
 
+  public openModal(): void {
+    this.modalOpen = true;
+  }
 }

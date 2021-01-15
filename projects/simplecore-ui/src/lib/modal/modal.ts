@@ -7,27 +7,78 @@
  */
 
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
+  ElementRef, Inject,
   Input,
-  OnInit,
-  Renderer2,
+  OnInit, PLATFORM_ID,
+  Renderer2, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'core-modal',
   exportAs: 'coreModal',
   template: `
-    <div class="modal__container">
+    <div class="modal__container" #modalElement *ngIf="open">
+      <div class="modal" coreClickOutside (onClickOutside)="toggleModal(false)">
         <div>
-            <ng-content></ng-content>
+          <ng-content></ng-content>
         </div>
+        <div class="action">
+          <button class="action__primary">
+            <ng-content select="span[coreModalActionPrimary]"></ng-content>
+          </button>
+          <button class="action__secondary">
+            <ng-content select="span[coreModalActionSecondary]"></ng-content>
+          </button>
+        </div>
+      </div>
     </div>`,
   styleUrls: ['modal.scss']
 })
-export class CoreModal implements OnInit {
-  ngOnInit(): void {
+export class CoreModal implements AfterViewInit {
+  @Input() open: boolean = false;
+  private isOpening: boolean = false;
+
+  @Input() action: boolean = true;
+  @Input() actionPrimary: boolean = true;
+  @Input() actionSecondary: boolean = true;
+
+  @ViewChild('modalElement') modalElement: ElementRef | undefined;
+
+  constructor(private renderer: Renderer2, @Inject(PLATFORM_ID) private readonly platformId: any) {
+  }
+
+  ngAfterViewInit(): void {
+    this.toggleModal(this.open);
+  }
+
+  public toggleModal(on: boolean): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    if (!on && !this.isOpening) {
+      this.open = false;
+      // this.closeModal();
+    } else if (on) {
+      this.isOpening = true;
+      this.open = true;
+
+      // Delay
+      setTimeout(() => {
+        this.isOpening = false;
+      }, 10)
+    }
+  }
+
+  private openModal(): void {
+    this.renderer.setStyle(this.modalElement.nativeElement, "display", "flex");
+  }
+
+  private closeModal(): void {
+    this.renderer.setStyle(this.modalElement.nativeElement, "display", "none");
   }
 }

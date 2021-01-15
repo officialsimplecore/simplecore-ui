@@ -8,15 +8,13 @@
 
 import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {CoreModal} from "./modal";
-import {CoreClickOutsideModule} from "../_directives/click-outside";
+import {ClickOutsideDirective} from "./click-outside";
 
 @NgModule({
-  declarations: [CoreModal],
+  declarations: [ClickOutsideDirective],
   imports: [
-    CommonModule,
-    CoreClickOutsideModule
+    CommonModule
   ],
-  exports: [CoreModal]
+  exports:[ClickOutsideDirective]
 })
-export class CoreModalModule { }
+export class CoreClickOutsideModule { }

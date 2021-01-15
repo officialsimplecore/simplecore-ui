@@ -1,3 +1,7 @@
-<core-modal>
-  Test
+<button coreButton (click)="modal.toggleModal(true)">Open Modal</button>
+
+<core-modal [open]="modalOpen" #modal>
+  <div>Test</div>
+  <span coreModalActionPrimary>Primary</span>
+  <span coreModalActionSecondary>Secondary</span>
 </core-modal>

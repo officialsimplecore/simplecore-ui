@@ -1,0 +1,22 @@
+﻿/**
+ * @license
+ * Copyright 2021 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+
+@mixin button-base {
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: $action-corner-radius;
+  font-family: $primary-font;
+  font-size: $body-font;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all $fade-speed;
+  &:focus {
+    outline: 0;
+  }
+}

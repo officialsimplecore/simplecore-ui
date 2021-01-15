@@ -5,3 +5,65 @@
  * Use of this source code is governed private licensing for
  * internal SimpleCore projects
  */
+@import "../theme.scss";
+@import "../button/button.mixin";
+
+.modal__container {
+  position: absolute;;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  animation: 150ms ease-out 0s 1 fadeBackground forwards;
+  .modal {
+    animation: 150ms 0s 1 ease-in-out delayShow forwards;
+    width: 400px;
+    border-radius: $action-corner-radius;
+    background-color: $light-text;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.16);
+    * {
+      padding: 18px;
+    }
+    .action {
+      border-top: 1px solid $dark-text;
+      display: flex;
+      flex-direction: row-reverse;
+      button {
+        @include button-base;
+        margin-left: 5px;
+        font-size: 14px;
+      }
+      .action__primary {
+        background-color: $primary-color;
+      }
+
+      .action__secondary {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+@keyframes fadeBackground {
+  0% {
+    background-color: rgba(0,0,0,0);
+  }
+  100% {
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+@keyframes delayShow {
+  0% {
+    visibility: hidden;
+    transform: scale(0.8);
+  }
+  100% {
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
