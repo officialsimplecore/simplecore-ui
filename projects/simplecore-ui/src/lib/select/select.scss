@@ -23,6 +23,10 @@
   //}
 }
 
+.core-select:hover, .core-select:focus {
+  @include core-inputs-outline__focus;
+}
+
 .core-select::after {
   content: '<>';
   font: 17px "Consolas", monospace;

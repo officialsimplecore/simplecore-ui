@@ -12,6 +12,10 @@
   @include core-inputs-outline;
 }
 
+.core-input__outline:hover, .core-input__outline:focus {
+  @include core-inputs-outline__focus;
+}
+
 .core-input__standard {
   @include core-inputs-standard;
 }
