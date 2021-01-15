@@ -6,7 +6,15 @@
  * internal SimpleCore projects
  */
 
-import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'button[coreButton]',
@@ -20,7 +28,7 @@ export class ButtonDirective implements OnInit {
   @Input() size: string = 'md';
   @Input() themeColor: string = 'primary';
 
-  constructor(private element: ElementRef) {
+  constructor(private renderer: Renderer2, private element: ElementRef) {
   }
   ngOnInit(): void {
     this.element.nativeElement.classList.add("core-button");
@@ -40,6 +48,9 @@ export class ButtonDirective implements OnInit {
     switch (this.themeColor) {
       case "secondary":
         this.element.nativeElement.classList.add("core-button__background-secondary");
+        break;
+      case "transparent":
+        this.renderer.addClass(this.element.nativeElement, "core-button__transparent");
         break;
       default: // Primary
         this.element.nativeElement.classList.add("core-button__background-primary");

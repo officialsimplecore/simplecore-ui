@@ -26,7 +26,19 @@
 
 .core-button__background-secondary:active {
   background-color: $secondary-color-force;
+}
 
+.core-button__transparent {
+  color: $dark-text;
+  background-color: transparent;
+}
+
+.core-button__transparent:hover {
+  background-color: $light-gray;
+}
+
+.core-button__transparent:active {
+  background-color: $active-gray;
 }
 
 .core-button__size-sm {
