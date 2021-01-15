@@ -6,7 +6,15 @@
  * internal SimpleCore projects
  */
 
-import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'button[coreButton]',
@@ -20,29 +28,32 @@ export class ButtonDirective implements OnInit {
   @Input() size: string = 'md';
   @Input() themeColor: string = 'primary';
 
-  constructor(private element: ElementRef) {
+  constructor(private renderer: Renderer2, private element: ElementRef) {
   }
   ngOnInit(): void {
-    this.element.nativeElement.classList.add("core-button");
+    this.renderer.addClass(this.element.nativeElement, "core-button");
 
     switch(this.size) {
       case "sm": // Small
-        this.element.nativeElement.classList.add("core-button__size-sm");
+        this.renderer.addClass(this.element.nativeElement, "core-button__size-sm");
         break;
       case "lg": // Large
-        this.element.nativeElement.classList.add("core-button__size-lg");
+        this.renderer.addClass(this.element.nativeElement, "core-button__size-lg");
         break;
       default: // (md) Medium
-        this.element.nativeElement.classList.add("core-button__size-md");
+        this.renderer.addClass(this.element.nativeElement, "core-button__size-md");
         break;
     }
 
     switch (this.themeColor) {
       case "secondary":
-        this.element.nativeElement.classList.add("core-button__background-secondary");
+        this.renderer.addClass(this.element.nativeElement, "core-button__background-secondary");
+        break;
+      case "transparent":
+        this.renderer.addClass(this.element.nativeElement, "core-button__transparent");
         break;
       default: // Primary
-        this.element.nativeElement.classList.add("core-button__background-primary");
+        this.renderer.addClass(this.element.nativeElement, "core-button__background-primary");
         break;
     }
   }
