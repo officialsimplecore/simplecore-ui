@@ -24,6 +24,9 @@ import {isPlatformBrowser} from "@angular/common";
   template: `
     <div class="modal__container" #modalElement *ngIf="open">
       <div class="modal" coreClickOutside (onClickOutside)="toggleModal(false)">
+        <div class="title" *ngIf="title">
+          <h2><ng-content select="span[coreModalTitle]"></ng-content></h2>
+        </div>
         <div class="content">
           <ng-content></ng-content>
         </div>
@@ -43,7 +46,8 @@ export class CoreModal implements AfterViewInit {
   @Input() open: boolean = false;
   private isOpening: boolean = false;
 
-  @Input() action: boolean = true;
+  @Input() action: boolean = false;
+  @Input() title: boolean = false;
   @Input() actionPrimary: boolean = true;
   @Input() actionSecondary: boolean = true;
 
