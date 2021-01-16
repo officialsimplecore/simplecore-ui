@@ -12,9 +12,10 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - name: Node
-      - run: npm install
-      - run: npm run lib:build:prod
-      - run: npm run build
+        run: |
+          npm install
+          npm run lib:build:prod
+          npm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
