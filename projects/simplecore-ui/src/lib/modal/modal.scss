@@ -34,11 +34,11 @@
     }
 
     .content {
-      border-top: 1px solid $dark-text;
+      border-top: 1px solid $active-gray;
       padding: var(--modal-padding);
     }
     .action {
-      border-top: 1px solid $dark-text;
+      border-top: 1px solid $active-gray;
       padding: var(--modal-padding);
       display: flex;
       flex-direction: row-reverse;
