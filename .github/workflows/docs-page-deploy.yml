@@ -1,0 +1,26 @@
+name: DOCS_PAGES_DEPLOY
+
+on: [push]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Node
+        run: |
+          npm install
+          npm run lib:build:prod
+          npm run build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: dist/simplecore-ui-docs # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
+        
