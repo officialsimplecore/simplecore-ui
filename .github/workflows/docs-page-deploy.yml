@@ -13,10 +13,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm install
+      - run: npm run lib:build:prod
       - run: npm run build
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
