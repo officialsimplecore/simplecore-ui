@@ -12,6 +12,7 @@ import {
   ElementRef,
   Input,
   OnInit,
+  Renderer2,
   ViewEncapsulation
 } from '@angular/core';
 
@@ -23,19 +24,24 @@ import {
   host: {
     'class': 'core-select',
   },
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CoreSelect implements OnInit {
   @Input() corePlaceholderText: string = "Select options";
+  @Input() colorOverride: string | undefined;
 
-  constructor(private element: ElementRef) {
+  constructor(private renderer: Renderer2, private element: ElementRef) {
   }
   ngOnInit(): void {
     this.toggleLabelFloating();
+    this.checkForReset();
+    this.overrideBackgroundColor();
   }
 
   private toggleLabelFloating(): void {
-    this.element.nativeElement.addEventListener("change", () => {
+    this.element.nativeElement.addEventListener("valueChange", () => {
+      console.log("Check")
       const floatingLabelElement = this.element.nativeElement.nextElementSibling;
       if (!!floatingLabelElement) {
         const placeholderOptionElement = this.element.nativeElement.children[0];
@@ -46,6 +52,32 @@ export class CoreSelect implements OnInit {
         }
       }
     });
+    this.element.nativeElement.addEventListener("mouseleave", () => {
+      console.log("Check")
+      const floatingLabelElement = this.element.nativeElement.nextElementSibling;
+      if (!!floatingLabelElement) {
+        const placeholderOptionElement = this.element.nativeElement.children[0];
+        if (!placeholderOptionElement.selected) {
+          floatingLabelElement.classList.add("core-select-label__floating");
+        } else {
+          floatingLabelElement.classList.remove("core-select-label__floating");
+        }
+      }
+    });
+  }
+
+  private checkForReset(): void {
+    const floatingLabelElement = this.element.nativeElement.nextElementSibling;
+    this.element.nativeElement.addEventListener("clear", () => {
+      floatingLabelElement.classList.remove("core-select-label__floating");
+    });
+  }
+
+  private overrideBackgroundColor(): void {
+    if (this.colorOverride) {
+      this.renderer.setStyle(this.element.nativeElement, "background-color", `#${this.colorOverride}`);
+      this.renderer.setStyle(this.element.nativeElement.nextElementSibling, "background-color", `#${this.colorOverride}`);
+    }
   }
 }
 

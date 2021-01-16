@@ -31,6 +31,7 @@ export class ModalComponent implements AfterViewInit {
   public submitIt() {
     this.modal.toggleModal(false);
     this.logForm();
+    this.form.reset();
   }
 
   // Not that submission

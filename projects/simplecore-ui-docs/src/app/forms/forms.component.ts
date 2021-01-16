@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-forms',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormsComponent implements OnInit {
 
+  @ViewChild('form') form: HTMLFormElement;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -14,5 +16,6 @@ export class FormsComponent implements OnInit {
 
   logForm(value: any) {
     console.log(value);
+    this.form.reset();
   }
 }

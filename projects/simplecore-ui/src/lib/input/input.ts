@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2020 SimpleCore All Rights Reserved.
+ * Copyright 2021 SimpleCore All Rights Reserved.
  *
  * Use of this source code is governed private licensing for
  * internal SimpleCore projects
@@ -28,13 +28,11 @@ import {
 })
 export class CoreInput implements OnInit {
   @Input() appearance: string = "outline";
+  @Input() colorOverride: string | undefined;
 
   constructor(private element: ElementRef, private renderer: Renderer2) {
   }
   ngOnInit(): void {
-    if (this.appearance === "outline") {
-
-    }
 
     switch(this.appearance) {
       case 'outline':
@@ -45,6 +43,15 @@ export class CoreInput implements OnInit {
         // this.element.nativeElement.classList.add("core-input__standard");
         this.renderer.addClass(this.element.nativeElement, "core-input__standard");
         break;
+    }
+
+    this.overrideBackgroundColor();
+  }
+
+  private overrideBackgroundColor(): void {
+    if (this.colorOverride) {
+      this.renderer.setStyle(this.element.nativeElement, "background-color", `#${this.colorOverride}`);
+      this.renderer.setStyle(this.element.nativeElement.nextElementSibling, "background-color", `#${this.colorOverride}`);
     }
   }
 }

@@ -3,13 +3,13 @@
 <core-modal [open]="modalOpen" #modal action="true" title="true">
   <span coreModalTitle>My Modal</span>
   <form #start #form="ngForm" id="car-journal">
-    <input name="firstName" ngModel coreInput type="text" id="name" placeholder="Name"/>
+    <input name="firstName" colorOverride="ffffff" ngModel coreInput type="text" id="name" placeholder="Name"/>
     <label coreLabel for="name">Name</label>
-    <select coreSelect name="test" id="option" ngModel>
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+    <select coreSelect name="test" id="option" ngModel colorOverride="ffffff">
+      <option value="Volvo">Volvo</option>
+      <option value="Saab">Saab</option>
+      <option value="Mercedes">Mercedes</option>
+      <option value="Audi">Audi</option>
     </select>
     <label coreSelectLabel for="option">Car Make</label>
   </form>
