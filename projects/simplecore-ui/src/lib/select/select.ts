@@ -73,7 +73,6 @@ export class CoreSelect implements OnInit, OnDestroy {
   /* Check if the label should be floating depending on the placeholder element
   *  and change classes if necessary */
   private applyLabelFloat(): void {
-    console.log('tset')
     const floatingLabelElement = this.element.nativeElement.nextElementSibling;
     if (!floatingLabelElement) {
       return;
