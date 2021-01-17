@@ -6,5 +6,5 @@
  * internal SimpleCore projects
  */
 
-export * from './modal.module';
-export * from './modal';
+export * from './progress-bar.module';
+export * from './progress-bar';
