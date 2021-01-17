@@ -23,3 +23,5 @@ export * from './lib/modal/index';
 export * from './lib/_directives/click-outside';
 
 export * from './lib/progress-bar/index';
+
+export * from './lib/_services/scroll-lock.service';
