@@ -1,0 +1,46 @@
+/**
+ * @license
+ * Copyright 2021 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+@import "../theme.scss";
+
+$bar-height: 5px;
+
+.slider {
+  width: 100%;
+  height: $bar-height;
+  left: 0;
+  overflow-x: hidden;
+  z-index: 100;
+}
+
+.line {
+  opacity: 0.4;
+  background-color: $secondary-color;
+  width: 150%;
+  height: $bar-height;
+}
+
+.subLine {
+  margin-top: -1 * $bar-height;
+  background-color: $secondary-color;
+  height: $bar-height;
+}
+.increase {
+  animation: increase 2s infinite;
+}
+.decrease {
+  animation: decrease 2s 0.5s infinite;
+}
+
+@keyframes increase {
+  from { margin-left: -5%; width: 5%; }
+  to { margin-left: 130%; width: 100%;}
+}
+@keyframes decrease {
+  from { margin-left: -80%; width: 80%; }
+  to { margin-left: 110%; width: 10%;}
+}

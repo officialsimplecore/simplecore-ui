@@ -21,3 +21,5 @@ export * from './lib/_directives/pressable/index';
 export * from './lib/modal/index';
 
 export * from './lib/_directives/click-outside';
+
+export * from './lib/progress-bar/index';

@@ -20,6 +20,8 @@ import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
 import {CorePressableModule} from "../../../simplecore-ui/src/lib/_directives/pressable";
 import {ModalComponent} from "./modal/modal.component";
 import {CoreModalModule} from "../../../simplecore-ui/src/lib/modal";
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import {CoreProgressBarModule} from "../../../simplecore-ui/src/lib/progress-bar/progress-bar.module";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {CoreModalModule} from "../../../simplecore-ui/src/lib/modal";
     SelectComponent,
     FormsComponent,
     CardComponent,
-    ModalComponent
+    ModalComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {CoreModalModule} from "../../../simplecore-ui/src/lib/modal";
     CoreSelectModule,
     CoreCardModule,
     CorePressableModule,
-    CoreModalModule
+    CoreModalModule,
+    CoreProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
