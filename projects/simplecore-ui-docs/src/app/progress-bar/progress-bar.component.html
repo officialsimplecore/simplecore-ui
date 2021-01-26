@@ -1,0 +1,18 @@
+
+Indeterminate:
+<core-progress-bar progressBarMode="indeterminate"></core-progress-bar>
+<br />
+
+Determinate:
+<br /><br />
+
+<input id="bar-value" type="text" coreInput appearance="outline" placeholder="Progress Bar Percentage" [(ngModel)]="progressBarValue">
+<label for="bar-value" coreLabel>Progress Bar Percentage</label>
+<core-progress-bar progressBarMode="determinate" [value]="progressBarValue"></core-progress-bar>
+
+<br />
+Indeterminate with custom color code color as hex code:
+<br /><br />
+
+<core-progress-bar progressBarMode="indeterminate" [color]="progressBarColor"></core-progress-bar>
+<br />

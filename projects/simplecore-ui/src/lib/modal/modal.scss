@@ -13,6 +13,7 @@
   width: 100%;
   height: 100%;
   display: flex;
+  z-index: 100; // Makes modal take over entire screen
   justify-content: center;
   align-items: center;
   top: 0;

@@ -11,12 +11,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef, EventEmitter, Inject,
-  Input,
+  Input, OnDestroy,
   OnInit, Output, PLATFORM_ID,
   Renderer2, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import {isPlatformBrowser} from "@angular/common";
+import {ScrollLockService} from "../_services/scroll-lock.service";
 
 @Component({
   selector: 'core-modal',
@@ -42,8 +43,31 @@ import {isPlatformBrowser} from "@angular/common";
     </div>`,
   styleUrls: ['modal.scss']
 })
-export class CoreModal implements AfterViewInit {
-  @Input() open: boolean = false;
+export class CoreModal implements AfterViewInit, OnDestroy {
+  public get open(): boolean {
+    return this._open;
+  }
+  public set open(val: boolean) {
+    // Do not proceed unless the view is initialized because there will be no context to the modal element
+    if (!this.viewInitialized) {
+      return;
+    }
+    if (val === true) {
+      this._open = val;
+      // Must wait until the component view is rendered before disabling scroll
+      setTimeout(() => {
+        this.scrollLockService.disableBodyScroll(this.modalElement.nativeElement);
+      }, 1);
+    } else {
+      this.scrollLockService.enableBodyScroll(this.modalElement.nativeElement);
+      // Must wait until the body scroll is disabled before destorying the component render
+      setTimeout(() => {
+        this._open = val;
+      }, 1);
+    }
+  }
+  private _open: boolean = false;
+
   private isOpening: boolean = false;
 
   @Input() action: boolean = false;
@@ -56,11 +80,16 @@ export class CoreModal implements AfterViewInit {
 
   @ViewChild('modalElement') modalElement: ElementRef | undefined;
 
-  constructor(private renderer: Renderer2, @Inject(PLATFORM_ID) private readonly platformId: any) {
+  private viewInitialized: boolean = false;
+
+  constructor(private renderer: Renderer2,
+              @Inject(PLATFORM_ID) private readonly platformId: any,
+              private scrollLockService: ScrollLockService) {
   }
 
   ngAfterViewInit(): void {
     this.toggleModal(this.open);
+    this.viewInitialized = true;
   }
 
   public toggleModal(on: boolean): void {
@@ -77,7 +106,7 @@ export class CoreModal implements AfterViewInit {
       // Delay
       setTimeout(() => {
         this.isOpening = false;
-      }, 10)
+      }, 10);
     }
   }
 
@@ -87,5 +116,9 @@ export class CoreModal implements AfterViewInit {
 
   private closeModal(): void {
     this.renderer.setStyle(this.modalElement.nativeElement, "display", "none");
+  }
+
+  ngOnDestroy(): void {
+    this.scrollLockService.clearAllBodyScrollLocks();
   }
 }
