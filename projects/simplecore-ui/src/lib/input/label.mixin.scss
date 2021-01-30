@@ -20,7 +20,7 @@
 @mixin core-inputs-standard {
   @include core-inputs-base;
   border: none;
-  background-color: var(--core-color-hover);
+  background-color: var(--core-background-color);
 }
 
 @mixin core-inputs-base {
