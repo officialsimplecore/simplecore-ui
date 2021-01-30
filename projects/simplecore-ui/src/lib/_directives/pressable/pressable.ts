@@ -11,7 +11,8 @@ import {Directive, ElementRef, HostListener, OnDestroy, OnInit, Renderer2} from 
 @Directive({
   selector: '[corePressable]',
   host: {
-    '(document:mouseup)': 'setPressed(false)'
+    '(document:mouseup)': 'setPressed(false)',
+    '(document:touchend)': 'setPressed(false)'
   }
 })
 export class PressableDirective implements OnInit, OnDestroy {
