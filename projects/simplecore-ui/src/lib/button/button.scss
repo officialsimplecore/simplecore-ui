@@ -13,37 +13,37 @@
 }
 
 .core-button__background-primary:hover {
-  background-color: $primary-color-push;
+  background-color: var(--core-color-primary-shade);
 }
 
 .core-button__background-secondary:hover {
-  background-color: $secondary-color-push;
+  background-color: var(--core-color-secondary-shade);
 }
 
 .core-button__background-primary:active {
-  background-color: $primary-color-force;
+  background-color: var(--core-color-primary-force);
 }
 
 .core-button__background-secondary:active {
-  background-color: $secondary-color-force;
+  background-color: var(--core-color-secondary-force);
 }
 
 .core-button__transparent {
-  color: $dark-text;
+  color: var(--core-color-dark);
   background-color: transparent;
 }
 
 .core-button__transparent:hover {
-  background-color: $light-gray;
+  background-color: var(--core-light-gray);
 }
 
 .core-button__transparent:active {
-  background-color: $active-gray;
+  background-color: var(--core-active-gray);
 }
 
 .core-button__size-sm {
   padding: 8px 10px;
-  font-size: $body-font;
+  font-size: var(--core-size-body);
 }
 
 .core-button__size-md {
@@ -55,9 +55,9 @@
 }
 
 .core-button__background-primary {
-  background-color: $primary-color;
+  background-color: var(--core-color-primary);
 }
 
 .core-button__background-secondary {
-  background-color: $secondary-color;
+  background-color: var(--core-color-secondary);
 }

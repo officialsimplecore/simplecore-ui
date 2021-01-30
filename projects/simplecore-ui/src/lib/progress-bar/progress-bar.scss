@@ -19,14 +19,14 @@ $bar-height: 5px;
 
 .line {
   opacity: 0.4;
-  background-color: $secondary-color;
+  background-color: var(--core-color-secondary);
   width: 150%;
   height: $bar-height;
 }
 
 .subLine {
   margin-top: -1 * $bar-height;
-  background-color: $secondary-color;
+  background-color: var(--core-color-secondary);
   height: $bar-height;
 }
 .increase {

@@ -22,9 +22,9 @@
   .modal {
     animation: 150ms 0s 1 ease-in-out delayShow forwards;
     width: 400px;
-    border-radius: $action-corner-radius;
-    background-color: $light-text;
-    box-shadow: 0 2px 10px 0 rgba(0,0,0,.16);
+    border-radius: var(--border-radius-action);
+    background-color: var(--core-color-light);
+    box-shadow: 0 2px 10px 0 var(--core-active-gray);
     --modal-padding: 12px;
     .title {
       padding: var(--modal-padding);
@@ -35,11 +35,11 @@
     }
 
     .content {
-      border-top: 1px solid $active-gray;
+      border-top: 1px solid var(--core-active-gray);
       padding: var(--modal-padding);
     }
     .action {
-      border-top: 1px solid $active-gray;
+      border-top: 1px solid var(--core-active-gray);
       padding: var(--modal-padding);
       display: flex;
       flex-direction: row-reverse;

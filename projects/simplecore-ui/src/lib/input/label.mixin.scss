@@ -4,32 +4,32 @@
   @include core-inputs-base;
   transition: margin-left 100ms ease-in-out, border 100ms ease-in-out;
   box-sizing: border-box;
-  border: 1px solid $active-gray;
-  background-color: $background-color;
+  border: 1px solid var(--core-active-gray);
+  background-color: var(--core-background-color);
 }
 
 @mixin core-inputs-outline__hover {
   margin-left: -1px;
-  border: 2px solid $active-gray;
+  border: 2px solid var(--core-active-gray);
 }
 
 @mixin core-inputs-outline__focus {
   margin-left: -1px;
-  border: 2px solid $dark-text;
+  border: 2px solid var(--core-color-dark);
 }
 
 @mixin core-inputs-standard {
   @include core-inputs-base;
   border: none;
-  background-color: $hover-color;
+  background-color: var(--core-color-hover);
 }
 
 @mixin core-inputs-base {
-  font-family: $primary-font;
-  font-size: $body-font;
+  font-family: var(--core-font-primary);
+  font-size: var(--core-size-body);
   padding: 14px 15px;
   height: 54px;
-  border-radius: $action-corner-radius;
+  border-radius: var(--border-radius-action);
   width: 100%;
   &:focus {
     outline: 0;
@@ -42,10 +42,10 @@
   top: -37px;
   pointer-events: none;
   transition: transform 180ms ease-in-out;
-  font-family: $primary-font;
+  font-family: var(--core-font-primary);
   padding: 0 12px;
   left: 5px;
-  background-color: $background-color;
+  background-color: var(--core-background-color);
   transform-origin: bottom left;
 }
 
