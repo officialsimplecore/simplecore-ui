@@ -9,13 +9,13 @@
 @mixin button-base {
   color: #fff;
   padding: 10px 14px;
-  border-radius: $action-corner-radius;
-  font-family: $primary-font;
-  font-size: $body-font;
+  border-radius: var(--border-radius-action);
+  font-family: var(--core-font-primary);
+  font-size: var(--core-size-body);
   font-weight: 500;
   cursor: pointer;
   border: none;
-  transition: all $fade-speed;
+  transition: all var(--core-animation-speed-fade);
   &:focus {
     outline: 0;
   }

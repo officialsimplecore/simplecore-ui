@@ -122,3 +122,85 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+:root {
+  /** primary **/
+  --core-color-primary: #FB2B43;
+  --core-color-primary-contrast: #ffffff;
+  --core-color-primary-shade: #ff475b;
+  --core-color-primary-force: #de1a31;
+
+  /** secondary **/
+  --core-color-secondary: #1A73F5;
+  --core-color-secondary-contrast: #ffffff;
+  --core-color-secondary-shade: #3286ff;
+  --core-color-secondary-force: #005cd0;
+
+  /** tertiary **/
+  --core-color-tertiary: #5260ff;
+  --core-color-tertiary-contrast: #ffffff;
+  --core-color-tertiary-shade: #4854e0;
+  --core-color-tertiary-force: #6370ff;
+
+  /** success **/
+  --core-color-success: #2dd36f;
+  --core-color-success-contrast: #ffffff;
+  --core-color-success-shade: #28ba62;
+  --core-color-success-force: #42d77d;
+
+  /** warning **/
+  --core-color-warning: #ffc409;
+  --core-color-warning-contrast: #000000;
+  --core-color-warning-shade: #e0ac08;
+  --core-color-warning-force: #ffca22;
+
+  /** danger **/
+  --core-color-danger: #eb445a;
+  --core-color-danger-contrast: #ffffff;
+  --core-color-danger-shade: #cf3c4f;
+  --core-color-danger-force: #ed576b;
+
+  /** dark **/
+  --core-color-dark: #303640;
+  --core-color-dark-contrast: #ffffff;
+  --core-color-dark-shade: #1e2023;
+  --core-color-dark-force: #383a3e;
+
+
+
+  /** light **/
+  --core-color-light: #ffffff;
+
+  /** medium **/
+  --core-color-medium: #92949c;
+  --core-color-hover: #f6f7f9;
+  --core-color-active: #e7e7e7;
+
+  /** transparent **/
+  --core-light-gray: rgba(0,0,0,0.08);
+  --core-active-gray: rgba(0,0,0,0.18);
+
+  /** border radius **/
+  --border-radius-rounded-corner: 23px;
+  --border-radius-pill: 33px;
+  --border-radius-action: 6px;
+
+  /** fonts **/
+  --core-font-primary: Quicksand, Helvetica, "Segoe UI", sans-serif;
+  --core-font-secondary: "Segoe UI", "San Francisco", Helvetica, sans-serif;
+
+  /** font sizes **/
+  --core-size-display: 42px;
+  --core-size-header: 34px;
+  --core-size-title-1: 28px;
+  --core-size-title-2: 22px;
+  --core-size-headline: 20px;
+  --core-size-body: 16px;
+  --core-size-caption: 12px;
+
+  /** background color **/
+  --core-background-color: #f5f9fd;
+
+  /** animations **/
+  --core-animation-speed-fade: 300ms;
+}

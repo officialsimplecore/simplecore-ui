@@ -44,5 +44,5 @@
 
 // Correct input background color change on autofill
 .core-input__outline:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px $background-color inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--core-background-color) inset;
 }

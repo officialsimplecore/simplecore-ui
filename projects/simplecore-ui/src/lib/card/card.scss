@@ -9,11 +9,11 @@
 @import "../theme.scss";
 
 .core-card {
-  border-radius: $rounded-corner-radius;
-  background-color: $light-text;
-  padding: $internal-padding;
+  border-radius: var(--border-radius-rounded-corner);
+  background-color: var(--core-color-light);
+  padding: var(--core-padding-internal);
 }
 
 .core-card__outline {
-  border: 1px solid $active-color;
+  border: 1px solid var(--core-color-active);
 }
