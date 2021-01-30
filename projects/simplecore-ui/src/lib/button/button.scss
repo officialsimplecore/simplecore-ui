@@ -6,7 +6,6 @@
  * internal SimpleCore projects
  */
 
-@import "../theme.scss";
 @import "./button.mixin";
 .core-button {
   @include button-base;

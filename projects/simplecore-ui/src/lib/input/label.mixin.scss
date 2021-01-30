@@ -1,5 +1,4 @@
-﻿@import "../theme.scss";
-
+﻿
 @mixin core-inputs-outline {
   @include core-inputs-base;
   transition: margin-left 100ms ease-in-out, border 100ms ease-in-out;
