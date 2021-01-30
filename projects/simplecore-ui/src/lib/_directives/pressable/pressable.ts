@@ -11,7 +11,8 @@ import {Directive, ElementRef, HostListener, OnDestroy, OnInit, Renderer2} from 
 @Directive({
   selector: '[corePressable]',
   host: {
-    '(document:mouseup)': 'setPressed(false)'
+    '(document:mouseup)': 'setPressed(false)',
+    '(document:touchend)': 'setPressed(false)'
   }
 })
 export class PressableDirective implements OnInit, OnDestroy {
@@ -28,6 +29,9 @@ export class PressableDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.renderer.setStyle(this.element.nativeElement, 'transition', 'transform 180ms ease-in-out')
     this.element.nativeElement.addEventListener("mousedown", () => {
+      this.setPressed(true);
+    });
+    this.element.nativeElement.addEventListener("touchstart", () => {
       this.setPressed(true);
     });
   }
