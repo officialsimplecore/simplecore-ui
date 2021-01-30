@@ -30,6 +30,9 @@ export class PressableDirective implements OnInit, OnDestroy {
     this.element.nativeElement.addEventListener("mousedown", () => {
       this.setPressed(true);
     });
+    this.element.nativeElement.addEventListener("touchstart", () => {
+      this.setPressed(true);
+    });
   }
 
   ngOnDestroy(): void {
