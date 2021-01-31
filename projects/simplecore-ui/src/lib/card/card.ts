@@ -7,15 +7,13 @@
  */
 
 import {
-  AfterContentInit,
+  AfterViewChecked,
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
-  OnInit, Renderer2,
-  ViewChild,
-  ViewEncapsulation
+  Renderer2,
+  ViewChild
 } from '@angular/core';
 
 @Component({
@@ -24,24 +22,44 @@ import {
   template: '<div #cardEl class="core-card"><ng-content></ng-content></div>',
   styleUrls: ['card.scss']
 })
-export class CoreCard implements AfterViewInit {
+export class CoreCard implements AfterViewInit, AfterViewChecked {
   @Input() neumorphic: boolean = true;
   @ViewChild('cardEl') cardEl: ElementRef;
+
+  private neumorphicShadowIsSet: boolean = false;
 
   constructor(private renderer: Renderer2) {
   }
 
-  // Find calculated width of the object to determine how to place the box shadow
-  ngAfterViewInit(): void {
-    const cardElement = this.cardEl.nativeElement;
+  ngAfterViewInit() {
     if (this.neumorphic) {
-      const offset = cardElement.offsetHeight / 12;
-      const blurOffset = offset * 1.7;
-      this.renderer.setStyle(cardElement,
-        'box-shadow', `0px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
-              -0px -${offset}px ${blurOffset}px rgba(255,255,255,0.85)`);
+      this.setNeumorphicShadow();
     } else {
-      this.renderer.addClass(cardElement, 'core-card__outline');
+      this.renderer.addClass(this.cardEl.nativeElement, 'core-card__outline');
     }
+  }
+
+  // Find calculated width of the object to determine how to place the box shadow
+  ngAfterViewChecked(): void {
+    if (!this.neumorphic) {
+      return;
+    }
+    if (this.neumorphicShadowIsSet) {
+      return;
+    }
+    this.setNeumorphicShadow();
+  }
+
+  private setNeumorphicShadow(): void {
+    const offset = this.cardEl.nativeElement.offsetHeight / 12;
+    if (offset !== 0) {
+      this.neumorphicShadowIsSet = true;
+    } else {
+      return;
+    }
+    const blurOffset = offset * 1.7;
+    this.renderer.setStyle(this.cardEl.nativeElement,
+      'box-shadow', `0px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
+              -0px -${offset}px ${blurOffset}px rgba(255,255,255,0.85)`);
   }
 }
