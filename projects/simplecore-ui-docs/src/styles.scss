@@ -123,6 +123,7 @@ html {
   box-sizing: inherit;
 }
 
+/** SIMPLECORE UI VARIABLES **/
 :root {
   /** primary **/
   --core-color-primary: #FB2B43;
@@ -166,8 +167,6 @@ html {
   --core-color-dark-shade: #1e2023;
   --core-color-dark-force: #383a3e;
 
-
-
   /** light **/
   --core-color-light: #ffffff;
 
@@ -203,4 +202,8 @@ html {
 
   /** animations **/
   --core-animation-speed-fade: 300ms;
+
+  /** structure **/
+  --core-padding-internal: 22px;
+
 }
