@@ -22,6 +22,8 @@ import {ModalComponent} from "./modal/modal.component";
 import {CoreModalModule} from "../../../simplecore-ui/src/lib/modal";
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import {CoreProgressBarModule} from "../../../simplecore-ui/src/lib/progress-bar/progress-bar.module";
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import {CoreCheckboxModule} from "../../../simplecore-ui/src/lib/checkbox";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {CoreProgressBarModule} from "../../../simplecore-ui/src/lib/progress-bar
     FormsComponent,
     CardComponent,
     ModalComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import {CoreProgressBarModule} from "../../../simplecore-ui/src/lib/progress-bar
     CoreCardModule,
     CorePressableModule,
     CoreModalModule,
-    CoreProgressBarModule
+    CoreProgressBarModule,
+    CoreCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
