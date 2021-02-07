@@ -7,6 +7,7 @@ import {FormsComponent} from "./forms/forms.component";
 import {CardComponent} from "./card/card.component";
 import {ModalComponent} from "./modal/modal.component";
 import {ProgressBarComponent} from "./progress-bar/progress-bar.component";
+import {CheckboxComponent} from "./checkbox/checkbox.component";
 
 const routes: Routes = [
   {path: 'button', component: ButtonComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'card', component: CardComponent},
   {path: 'modal', component: ModalComponent},
   {path: 'progress-bar', component: ProgressBarComponent},
+  {path: 'checkbox', component: CheckboxComponent}
 ];
 
 @NgModule({

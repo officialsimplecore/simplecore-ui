@@ -25,3 +25,5 @@ export * from './lib/_directives/click-outside';
 export * from './lib/progress-bar/index';
 
 export * from './lib/_services/scroll-lock.service';
+
+export * from './lib/checkbox/index';

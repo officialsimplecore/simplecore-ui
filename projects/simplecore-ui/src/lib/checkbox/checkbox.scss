@@ -1,0 +1,149 @@
+/**
+ * @license
+ * Copyright 2021 SimpleCore All Rights Reserved.
+ *
+ * Use of this source code is governed private licensing for
+ * internal SimpleCore projects
+ */
+
+$checked-color: var(--core-color-success);
+$unchecked-color: var(--core-active-gray);
+$checkbox-height: var(--core-checkbox-size);
+$font-color:#efefef;
+$duration: 240ms;
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+@-moz-keyframes checkmarkBottomHalf {
+  0% { height: 0; }
+  100% { height: calc(var(--core-checkbox-size)/2); }
+}
+
+@-webkit-keyframes checkmarkBottomHalf {
+  0% { height: 0; }
+  100% { height: calc(var(--core-checkbox-size)/2); }
+}
+
+@keyframes checkmarkBottomHalf {
+  0% { height: 0; }
+  100% { height: calc(var(--core-checkbox-size)/2); }
+}
+
+@keyframes checkmarkTopHalf {
+  0% { height: 0; }
+  50% { height: 0; }
+  100% { height: calc(var(--core-checkbox-size) * 1.2); }
+}
+@-webkit-keyframes checkmarkTopHalf {
+  0% { height: 0; }
+  50% { height: 0; }
+  100% { height: calc(var(--core-checkbox-size) * 1.2); }
+}
+@-moz-keyframes checkmarkTopHalf {
+  0% { height: 0; }
+  50% { height: 0; }
+  100% { height: calc(var(--core-checkbox-size) * 1.2); }
+}
+
+input[type=checkbox]{
+  display:none;
+}
+
+.animated-checkbox {
+  margin-right: 8px;
+  height: var(--core-checkbox-size);
+  width: var(--core-checkbox-size);
+  background-color: transparent;
+  border: calc(var(--core-checkbox-size) * .1) solid $unchecked-color;
+  border-radius: 16%;
+  position: relative;
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-transition: border-color ease $duration/2;
+  -o-transition: border-color ease $duration/2;
+  -webkit-transition: border-color ease $duration/2;
+  transition: border-color ease $duration/2;
+  cursor:pointer;
+  --core-checkbox-background: var(--core-background-color);
+
+  &::before, &::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0;
+    width: calc(var(--core-checkbox-size) * .2);
+    background-color: $checked-color;
+    display: inline-block;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -o-transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    border-radius: 5px;
+    content: ' ';
+    -webkit-transition: opacity ease .5;
+    -moz-transition: opacity ease .5;
+    transition: opacity ease .5;
+  }
+
+  &::before {
+    top: calc(var(--core-checkbox-size) * .72);
+    left: calc(var(--core-checkbox-size) * .41);
+    box-shadow: 0 0 0 calc(var(--core-checkbox-size) * .05) var(--core-checkbox-background);
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+
+  &::after {
+    top: calc(var(--core-checkbox-size) * .37);
+    left: calc(var(--core-checkbox-size) * .05);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    border-color: var(--core-color-dark)
+  }
+}
+
+input[type=checkbox]:checked + .animated-checkbox,
+.animated-checkbox.checked{
+  border-color:$checked-color;
+
+  &::after{
+    height: calc(var(--core-checkbox-size) * .5);
+    -moz-animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
+    -o-animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
+    -webkit-animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
+    animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
+  }
+
+  &::before{
+    height: calc(var(--core-checkbox-size) * 1.2);
+    -moz-animation: checkmarkTopHalf $duration ease 0s forwards;
+    -o-animation: checkmarkTopHalf $duration ease 0s forwards;
+    -webkit-animation: checkmarkTopHalf $duration ease 0s forwards;
+    animation: checkmarkTopHalf $duration ease 0s forwards;
+  }
+}
+
+.checkbox-label {
+  cursor: pointer;
+  color: var(--core-color-dark);
+
+  &:hover ~ .animated-checkbox {
+    border-color: var(--core-color-dark);
+  }
+}
