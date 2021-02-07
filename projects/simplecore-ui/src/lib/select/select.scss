@@ -48,7 +48,6 @@
   top: 18px;
   padding: 0 0 2px;
   border-bottom: 1px solid #999;
-  /*left line */
 
   position: absolute;
   pointer-events: none;
@@ -56,7 +55,9 @@
 
 .core-select-label {
   @include core-label;
-  width: calc(100% - 5px - 12px);
+  width: max-content;
+  min-width: 90px;
+    // This minimum width is set based on the width of the "Select options" placeholder
 }
 
 .core-select-label__floating {

@@ -37,15 +37,19 @@
 
 @mixin core-label {
   display: block;
-  position: relative;
-  top: -37px;
   pointer-events: none;
   transition: transform 180ms ease-in-out;
   font-family: var(--core-font-primary);
   padding: 0 12px;
-  left: 5px;
+  box-sizing: content-box;
   background-color: var(--core-background-color);
   transform-origin: bottom left;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: -37px;
 }
 
 @mixin core-label-float {
