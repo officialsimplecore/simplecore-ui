@@ -7,7 +7,7 @@
  */
 
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {CoreModal} from "simplecore-ui";
+import {CoreModal} from "../../../../simplecore-ui/src/lib/modal";
 
 @Component({
   selector: 'app-modal',
