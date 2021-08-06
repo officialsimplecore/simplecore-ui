@@ -25,15 +25,14 @@ export class CoreVStack implements AfterViewInit {
   // IO
   @ViewChild('vStack') vStack: ElementRef;
   @Input() overrideMarginSize: number | undefined;
-  @Input() marginSize: "small" | "medium" | "large" = "medium";
+  @Input() marginSize: "small" | "medium" | "large" | "none" = "medium";
 
   constructor(private renderer: Renderer2) {
   }
 
   ngAfterViewInit(): void {
     if (this.overrideMarginSize === undefined) {
-      let marginPixels: number = convertSizeToPixels(this.marginSize);
-      RendererExtensions.addStyleToChildren(this.renderer, this.vStack.nativeElement, "margin-bottom", `${marginPixels}px`, avoidLast);
+      RendererExtensions.addStyleToChildren(this.renderer, this.vStack.nativeElement, "margin-bottom", `var(--core-stack-margin-${this.marginSize})`, avoidLast);
     } else {
       RendererExtensions.addStyleToChildren(this.renderer, this.vStack.nativeElement, "margin-bottom", `${this.overrideMarginSize}px`, avoidLast);
     }
@@ -51,30 +50,17 @@ export class CoreHStack implements AfterViewInit {
   // IO
   @ViewChild('hStack') hStack: ElementRef;
   @Input() overrideMarginSize: number | undefined;
-  @Input() marginSize: "small" | "medium" | "large" = "medium";
+  @Input() marginSize: "small" | "medium" | "large" | "none" = "medium";
 
   constructor(private renderer: Renderer2) {
   }
 
   ngAfterViewInit(): void {
     if (this.overrideMarginSize === undefined) {
-      let marginPixels: number = convertSizeToPixels(this.marginSize);
-      RendererExtensions.addStyleToChildren(this.renderer, this.hStack.nativeElement, "margin-right", `${marginPixels}px`, avoidLast);
+      RendererExtensions.addStyleToChildren(this.renderer, this.hStack.nativeElement, "margin-right", `var(--core-stack-margin-${this.marginSize})`, avoidLast);
     } else {
       RendererExtensions.addStyleToChildren(this.renderer, this.hStack.nativeElement, "margin-right", `${this.overrideMarginSize}px`, avoidLast);
     }
-  }
-}
-
-export const convertSizeToPixels = (size:  "small" | "medium" | "large"): number => {
-  switch (size) {
-    case "large":
-      return 15;
-    case "small":
-      return 5;
-    default:
-      return 10;
-
   }
 }
 
