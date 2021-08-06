@@ -16,8 +16,18 @@ import { Component, OnInit } from '@angular/core';
 
     <core-hstack>
 
-      <div style="background-color: red">Test item 1 vertical</div>
+      <div style="background-color: red;">Test item 1 vertical</div>
       <div style="background-color: blue">Test item 2 vertical</div>
+      <div style="background-color: yellow">Test item 3 vertical</div>
+      <div>Test item 4 vertical</div>
+    </core-hstack>
+    <br>
+    <strong>Test HStack with wrap</strong>
+
+    <core-hstack [wrap]="true">
+
+      <div style="background-color: red; width: 100px">Test item 1 vertical</div>
+      <div style="background-color: blue; width: 400px">Test item 2 vertical</div>
       <div style="background-color: yellow">Test item 3 vertical</div>
       <div>Test item 4 vertical</div>
     </core-hstack>
