@@ -42,7 +42,7 @@ export class CoreVStack implements AfterViewInit {
 @Component({
   selector: 'core-hstack',
   exportAs: 'coreHStack',
-  template: '<div #hStack class="core-hstack"><ng-content></ng-content></div>',
+  template: `<div #hStack [class.core-hstack-wrap]="wrap" [class.core-hstack]="!wrap"><ng-content></ng-content></div>`,
   styleUrls: ['stack.scss'],
   encapsulation: ViewEncapsulation.None
 })
@@ -51,6 +51,7 @@ export class CoreHStack implements AfterViewInit {
   @ViewChild('hStack') hStack: ElementRef;
   @Input() overrideMarginSize: number | undefined;
   @Input() marginSize: "small" | "medium" | "large" | "none" = "medium";
+  @Input() wrap: boolean;
 
   constructor(private renderer: Renderer2) {
   }
