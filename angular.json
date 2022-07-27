@@ -28,18 +28,6 @@
             "tsConfig": "projects/simplecore-ui/tsconfig.spec.json",
             "karmaConfig": "projects/simplecore-ui/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/simplecore-ui/tsconfig.lib.json",
-              "projects/simplecore-ui/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -62,7 +50,6 @@
             "main": "projects/simplecore-ui-docs/src/main.ts",
             "polyfills": "projects/simplecore-ui-docs/src/polyfills.ts",
             "tsConfig": "projects/simplecore-ui-docs/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "projects/simplecore-ui-docs/src/favicon.ico",
               "projects/simplecore-ui-docs/src/assets"
@@ -70,7 +57,13 @@
             "styles": [
               "projects/simplecore-ui-docs/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -83,7 +76,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -101,7 +93,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -137,19 +130,6 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/simplecore-ui-docs/tsconfig.app.json",
-              "projects/simplecore-ui-docs/tsconfig.spec.json",
-              "projects/simplecore-ui-docs/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -163,6 +143,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "simplecore-ui"
+    }
+  }
 }
