@@ -1,7 +1,7 @@
 name: DOCS_PAGES_DEPLOY
 
 on: [push]
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org/
       - name: Node
         run: |
@@ -23,4 +23,4 @@ jobs:
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: dist/simplecore-ui-docs # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
-        
+
