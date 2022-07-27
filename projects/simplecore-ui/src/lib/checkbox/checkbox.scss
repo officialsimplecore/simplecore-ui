@@ -6,6 +6,8 @@
  * internal SimpleCore projects
  */
 
+@use "sass:math";
+
 $checked-color: var(--core-color-success);
 $unchecked-color: var(--core-active-gray);
 $checkbox-height: var(--core-checkbox-size);
@@ -64,10 +66,10 @@ input[type=checkbox]{
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-transition: border-color ease $duration/2;
-  -o-transition: border-color ease $duration/2;
-  -webkit-transition: border-color ease $duration/2;
-  transition: border-color ease $duration/2;
+  -moz-transition: border-color ease math.div($duration, 2);
+  -o-transition: border-color ease math.div($duration, 2);
+  -webkit-transition: border-color ease math.div($duration, 2);
+  transition: border-color ease math.div($duration, 2);
   cursor:pointer;
   --core-checkbox-background: var(--core-background-color);
 
@@ -124,10 +126,10 @@ input[type=checkbox]:checked + .animated-checkbox,
 
   &::after{
     height: calc(var(--core-checkbox-size) * .5);
-    -moz-animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
-    -o-animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
-    -webkit-animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
-    animation: checkmarkBottomHalf $duration/2 ease 0s forwards;
+    -moz-animation: checkmarkBottomHalf math.div($duration, 2) ease 0s forwards;
+    -o-animation: checkmarkBottomHalf math.div($duration, 2) ease 0s forwards;
+    -webkit-animation: checkmarkBottomHalf math.div($duration, 2) ease 0s forwards;
+    animation: checkmarkBottomHalf math.div($duration, 2) ease 0s forwards;
   }
 
   &::before{
