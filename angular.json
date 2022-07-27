@@ -28,18 +28,6 @@
             "tsConfig": "projects/simplecore-ui/tsconfig.spec.json",
             "karmaConfig": "projects/simplecore-ui/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/simplecore-ui/tsconfig.lib.json",
-              "projects/simplecore-ui/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -140,19 +128,6 @@
               "projects/simplecore-ui-docs/src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/simplecore-ui-docs/tsconfig.app.json",
-              "projects/simplecore-ui-docs/tsconfig.spec.json",
-              "projects/simplecore-ui-docs/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {

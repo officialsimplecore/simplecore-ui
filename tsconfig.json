@@ -20,6 +20,7 @@
         "dist/simplecore-ui/simplecore-ui",
         "dist/simplecore-ui"
       ]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   }
 }
