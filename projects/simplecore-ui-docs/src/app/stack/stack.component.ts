@@ -3,6 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-stack',
   template: `
+
+    <strong>Test Hstack With Centered Items Vertically</strong>
+    <core-hstack alignItems="center">
+        <core-checkbox></core-checkbox>
+
+        <core-card [neumorphic]="false">
+          <div class="matrix-item__description">Title</div>
+          <div class="matrix-item__description">Description</div>
+        </core-card>
+    </core-hstack>
+
     <strong>Test Vstack</strong>
     <core-vstack>
       <div style="background-color: red">Test item 1 vertical</div>
@@ -55,6 +66,7 @@ import { Component, OnInit } from '@angular/core';
       <div style="background-color: yellow">Test item 3 vertical</div>
       <div>Test item 4 vertical</div>
     </core-vstack>
+
   `,
   styleUrls: ['./stack.component.scss']
 })

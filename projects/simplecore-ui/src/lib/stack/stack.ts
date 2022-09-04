@@ -26,11 +26,15 @@ export class CoreVStack implements AfterViewInit {
   @ViewChild('vStack') vStack: ElementRef;
   @Input() overrideMarginSize: number | undefined;
   @Input() marginSize: "small" | "medium" | "large" | "none" = "medium";
+  @Input() alignItems: "start" | "center" | "end" | "stretch" = "start";
 
   constructor(private renderer: Renderer2) {
   }
 
   ngAfterViewInit(): void {
+
+    this.renderer.setStyle(this.vStack.nativeElement, "align-items", `${this.alignItems}`);
+
     if (this.overrideMarginSize === undefined) {
       RendererExtensions.addStyleToChildren(this.renderer, this.vStack.nativeElement, "margin-bottom", `var(--core-stack-margin-${this.marginSize})`, avoidLast);
     } else {
@@ -52,11 +56,14 @@ export class CoreHStack implements AfterViewInit {
   @Input() overrideMarginSize: number | undefined;
   @Input() marginSize: "small" | "medium" | "large" | "none" = "medium";
   @Input() wrap: boolean;
+  @Input() alignItems: "start" | "center" | "end" | "stretch" = "start";
 
   constructor(private renderer: Renderer2) {
   }
 
   ngAfterViewInit(): void {
+    this.renderer.setStyle(this.hStack.nativeElement, "align-items", `${this.alignItems}`);
+
     if (this.overrideMarginSize === undefined) {
       RendererExtensions.addStyleToChildren(this.renderer, this.hStack.nativeElement, "margin-right", `var(--core-stack-margin-${this.marginSize})`, avoidLast);
     } else {
