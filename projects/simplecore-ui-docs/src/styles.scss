@@ -1,3 +1,5 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+
 /* Global Styles */
 /* vietnamese */
 @font-face {
@@ -126,13 +128,15 @@ html {
 /** SIMPLECORE UI VARIABLES **/
 :root {
   /** primary **/
-  --core-color-primary: #FB2B43;
+  --core-color-primary: rgb(251, 43, 67);
+  --core-color-primary-rgb: 255, 43, 67;
   --core-color-primary-contrast: #ffffff;
   --core-color-primary-shade: #ff475b;
   --core-color-primary-force: #de1a31;
 
   /** secondary **/
   --core-color-secondary: #1A73F5;
+  --core-color-secondary-rgb: 26, 115, 245;
   --core-color-secondary-contrast: #ffffff;
   --core-color-secondary-shade: #3286ff;
   --core-color-secondary-force: #005cd0;

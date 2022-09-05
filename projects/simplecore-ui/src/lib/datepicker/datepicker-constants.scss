@@ -1,0 +1,27 @@
+@import "utils";
+
+$answer-to-life-universe-and-everything: 42; // same as 6*9, see http://www.6by9.net/why-6by9/
+$calendar-cell-size: pxToRem($answer-to-life-universe-and-everything);
+$calendar-cell-size--accessible: pxToRem(35px);
+$number-of-days-in-a-week: 7;
+
+$first-day-of-week-to-days-of-week: (
+  sunday: (
+    sunday,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday
+  ),
+  monday: (
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+    sunday
+  )
+);

@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 // UI Modules
 
@@ -19,13 +19,26 @@ import { CardComponent } from './card/card.component';
 import {CoreCardModule} from "../../../simplecore-ui/src/lib/card";
 import {CorePressableModule} from "../../../simplecore-ui/src/lib/_directives/pressable";
 import {ModalComponent} from "./modal/modal.component";
-import {CoreModalModule} from "../../../simplecore-ui/src/lib/modal";
+import {CoreModal, CoreModalModule} from "../../../simplecore-ui/src/lib/modal";
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import {CoreProgressBarModule} from "../../../simplecore-ui/src/lib/progress-bar/progress-bar.module";
+import {CoreProgressBarModule} from "../../../simplecore-ui/src/lib/progress-bar";
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import {CoreCheckboxModule} from "../../../simplecore-ui/src/lib/checkbox";
 import { StackComponent } from './stack/stack.component';
 import {StackModule} from "../../../simplecore-ui/src/lib/stack";
+import {DatepickerComponent} from "./datepicker/datepicker.component";
+import {CoreDatePickerModule} from "../../../simplecore-ui/src/lib/datepicker";
+import {CoreModalInPlaceModule} from "../../../simplecore-ui/src/lib/modal-in-place";
+import {ModalModule} from "../../../simplecore-ui/src/lib/lib/modal.module";
+import {registerLocaleData} from "@angular/common";
+import HungarianLocale from '@angular/common/locales/hu';
+import BritishLocale from '@angular/common/locales/en-GB';
+import SpanishLocale from '@angular/common/locales/es';
+import {ModalInPlaceComponent} from "./modal-in-place/modal-in-place.component";
+
+registerLocaleData(HungarianLocale);
+registerLocaleData(BritishLocale);
+registerLocaleData(SpanishLocale);
 
 @NgModule({
   declarations: [
@@ -38,7 +51,9 @@ import {StackModule} from "../../../simplecore-ui/src/lib/stack";
     ModalComponent,
     ProgressBarComponent,
     CheckboxComponent,
-    StackComponent
+    StackComponent,
+    DatepickerComponent,
+    ModalInPlaceComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +68,10 @@ import {StackModule} from "../../../simplecore-ui/src/lib/stack";
     CoreProgressBarModule,
     CoreCheckboxModule,
     CoreCardModule,
-    StackModule
+    StackModule,
+    CoreDatePickerModule,
+    ReactiveFormsModule,
+    CoreModalInPlaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

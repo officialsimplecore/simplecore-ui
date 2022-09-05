@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2021 SimpleCore All Rights Reserved.
+ * Copyright 2022 SimpleCore All Rights Reserved.
  *
  * Use of this source code is governed private licensing for
  * internal SimpleCore projects
@@ -11,11 +11,11 @@ import {CoreModal} from "../../../../simplecore-ui/src/lib/modal";
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss'],
+  templateUrl: './modal-in-place.component.html',
+  styleUrls: ['./modal-in-place.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ModalComponent implements AfterViewInit {
+export class ModalInPlaceComponent implements AfterViewInit {
   // Access modal to close it
   @ViewChild('modal') modal: CoreModal;
 

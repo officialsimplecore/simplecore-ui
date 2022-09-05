@@ -1,0 +1,28 @@
+@import "../datepicker-mixins";
+
+:host-context(.calendar--disabled) > * {
+  opacity: .38;
+}
+
+.days-of-week {
+  @include calendarGrid();
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  color: var(--core-color-dark);
+  font-weight: 400;
+  font-size: $calendar-cell-size--accessible / 2.5;
+
+  :host-context(.calendar--first-day-of-week-monday) & {
+    abbr:first-child {
+      order: 1;
+    }
+  }
+
+  &__day {
+    @include calendarGridCell();
+    font-variant: none;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../datepicker-mixins";
+
+.month-header {
+  @include calendarGrid();
+  font-weight: bold;
+  font-size: $calendar-cell-size--accessible / 2.25;
+
+  &__caption {
+    @include calendarGridCell();
+    // flex item fallback
+    flex-grow: 1;
+    // grid item
+    grid-column: 2 / span 5;
+  }
+
+  &__stepper {
+    @include calendarGridCell();
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+}

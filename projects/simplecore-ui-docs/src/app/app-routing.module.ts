@@ -9,6 +9,8 @@ import {ModalComponent} from "./modal/modal.component";
 import {ProgressBarComponent} from "./progress-bar/progress-bar.component";
 import {CheckboxComponent} from "./checkbox/checkbox.component";
 import {StackComponent} from "./stack/stack.component";
+import {DatepickerComponent} from "./datepicker/datepicker.component";
+import {ModalInPlaceComponent} from "./modal-in-place/modal-in-place.component";
 
 const routes: Routes = [
   {path: 'button', component: ButtonComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path: 'modal', component: ModalComponent},
   {path: 'progress-bar', component: ProgressBarComponent},
   {path: 'checkbox', component: CheckboxComponent},
-  {path: 'stack', component: StackComponent}
+  {path: 'stack', component: StackComponent},
+  {path: 'datepicker', component: DatepickerComponent},
+  {path: 'modal-in-place', component: ModalInPlaceComponent}
 ];
 
 @NgModule({

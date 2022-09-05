@@ -1,0 +1,13 @@
+<ng-template cdkConnectedOverlay
+             cdkConnectedOverlayHasBackdrop="true"
+             [cdkConnectedOverlayOrigin]="overlayOrigin"
+             [cdkConnectedOverlayOpen]="isOverlayOpen"
+             cdkConnectedOverlayPanelClass="overlay__panel"
+             cdkConnectedOverlayBackdropClass="overlay__backdrop"
+             (backdropClick)="toggleOverlay()"
+>
+  <div [cdkTrapFocus]="isOverlayOpen"
+       [cdkTrapFocusAutoCapture]="isOverlayOpen">
+    <ng-content></ng-content>
+  </div>
+</ng-template>

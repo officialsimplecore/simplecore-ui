@@ -1,0 +1,17 @@
+<div class="month-header">
+  <button class="month-header__stepper month-header__stepper--previous"
+          *ngIf="showMonthStepper"
+          (click)="stepMonth(-1)"
+          type="button"
+          aria-label="Previous month"
+  >◀</button>
+  <time class="month-header__caption"
+        [dateTime]="month | date:'yyyy-MM'"
+  >{{month | monthAndYear:locale:monthAndYearFormat}}</time>
+  <button class="month-header__stepper month-header__stepper--next"
+          *ngIf="showMonthStepper"
+          (click)="stepMonth(1)"
+          type="button"
+          aria-label="Next month"
+  >▶</button>
+</div>

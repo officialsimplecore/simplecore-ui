@@ -29,3 +29,7 @@ export * from './lib/_services/scroll-lock.service';
 export * from './lib/checkbox/index';
 
 export * from './lib/stack/index';
+
+export * from './lib/datepicker/index';
+
+export * from './lib/modal-in-place/index';
