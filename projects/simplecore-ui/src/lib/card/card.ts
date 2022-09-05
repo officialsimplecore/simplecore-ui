@@ -51,13 +51,13 @@ export class CoreCard implements AfterViewInit, AfterViewChecked {
   }
 
   private setNeumorphicShadow(): void {
-    const offset = this.cardEl.nativeElement.offsetHeight / 12;
+    const offset = Math.min(this.cardEl.nativeElement.offsetHeight / 7.5, 20);
     if (offset !== 0) {
       this.neumorphicShadowIsSet = true;
     } else {
       return;
     }
-    const blurOffset = offset * 1.7;
+    const blurOffset = offset * 1.5;
     this.renderer.setStyle(this.cardEl.nativeElement,
       'box-shadow', `0px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
               -0px -${offset}px ${blurOffset}px rgba(255,255,255,0.85)`);
