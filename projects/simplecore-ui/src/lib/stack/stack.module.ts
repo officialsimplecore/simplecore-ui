@@ -17,4 +17,4 @@ import {CoreHStack,CoreVStack} from "./stack";
   ],
   exports:[CoreVStack, CoreHStack]
 })
-export class StackModule { }
+export class CoreStackModule { }

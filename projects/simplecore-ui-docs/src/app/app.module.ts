@@ -25,7 +25,7 @@ import {CoreProgressBarModule} from "../../../simplecore-ui/src/lib/progress-bar
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import {CoreCheckboxModule} from "../../../simplecore-ui/src/lib/checkbox";
 import { StackComponent } from './stack/stack.component';
-import {StackModule} from "../../../simplecore-ui/src/lib/stack";
+import {CoreStackModule} from "../../../simplecore-ui/src/lib/stack";
 import {DatepickerComponent} from "./datepicker/datepicker.component";
 import {CoreDatePickerModule} from "../../../simplecore-ui/src/lib/datepicker";
 import {CoreModalInPlaceModule} from "../../../simplecore-ui/src/lib/modal-in-place";
@@ -67,8 +67,7 @@ registerLocaleData(SpanishLocale);
     CoreModalModule,
     CoreProgressBarModule,
     CoreCheckboxModule,
-    CoreCardModule,
-    StackModule,
+    CoreStackModule,
     CoreDatePickerModule,
     ReactiveFormsModule,
     CoreModalInPlaceModule
