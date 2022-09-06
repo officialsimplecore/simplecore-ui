@@ -8,3 +8,4 @@
 
 export * from './modal-in-place.module';
 export * from './modal-in-place';
+export * from './modal-toggle.directive';
