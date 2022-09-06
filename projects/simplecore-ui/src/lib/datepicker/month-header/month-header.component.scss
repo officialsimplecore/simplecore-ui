@@ -3,7 +3,7 @@
 .month-header {
   @include calendarGrid();
   font-weight: bold;
-  font-size: $calendar-cell-size--accessible / 2.25;
+  font-size: calc(var(--calendar-cell-size--accessible) / 2.25);
 
   &__caption {
     @include calendarGridCell();

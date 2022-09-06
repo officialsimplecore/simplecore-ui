@@ -4,16 +4,16 @@
   // flex container fallback
   display: flex;
   flex-wrap: wrap;
-  width: $number-of-days-in-a-week * $calendar-cell-size--accessible;
+  width: calc($number-of-days-in-a-week * var(--calendar-cell-size--accessible));
   margin: 0 auto;
-  line-height: $calendar-cell-size--accessible;
+  line-height: var(--calendar-cell-size--accessible);
   // grid container
   display: grid;
   grid-template-columns: repeat($number-of-days-in-a-week, $calendar-cell-size);
   grid-auto-rows: $calendar-cell-size;
   @media (min-width: 360px) {
     grid-template-columns: repeat($number-of-days-in-a-week, $calendar-cell-size--accessible);
-    grid-auto-rows: $calendar-cell-size--accessible;
+    grid-auto-rows: var(--calendar-cell-size--accessible);
   }
   // IE does not support the @supports query
   @supports (display: grid) {
@@ -27,7 +27,7 @@
 
 @mixin calendarGridCell() {
   // flex item fallback
-  flex-basis: $calendar-cell-size--accessible;
+  flex-basis: var(--calendar-cell-size--accessible);
   // grid item
   display: flex;
   justify-content: center;

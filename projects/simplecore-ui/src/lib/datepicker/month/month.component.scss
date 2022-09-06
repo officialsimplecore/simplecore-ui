@@ -14,7 +14,7 @@
       :host-context(.calendar--first-day-of-week-#{$first-day-of-week}) &--first-day-#{$day-of-week} {
         time:first-child {
           // flex item fallback
-          margin-left: (index($days-of-week, $day-of-week) - 1) * $calendar-cell-size--accessible;
+          margin-left: calc((index($days-of-week, $day-of-week) - 1) * var(--calendar-cell-size--accessible));
           // grid item
           grid-column: index($days-of-week, $day-of-week);
           @supports (display: grid) {
@@ -54,11 +54,11 @@
 
   .month__date {
     border-radius: 50%;
-    font-size: $calendar-cell-size--accessible / 2.5;
+    font-size: calc(var(--calendar-cell-size--accessible) / 2.5);
     font-weight: 600;
     color: var(--core-color-dark);
 
-    margin: $calendar-cell-size--accessible / 11.6;
+    margin: calc(var(--calendar-cell-size--accessible) / 11.6);
     transition: background-color .3s cubic-bezier(.4,0,.2,1),color .3s cubic-bezier(.4,0,.2,1);  }
 
   .month__date:hover {
