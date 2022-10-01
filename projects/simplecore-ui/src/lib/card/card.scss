@@ -10,7 +10,20 @@
 .core-card {
   border-radius: var(--border-radius-rounded-corner);
   background-color: var(--core-color-light);
-  padding: var(--core-padding-internal);
+}
+
+.core-card__padding__extra-large {
+  padding: var(--core-stack-margin-extra-large);
+}
+
+.core-card__padding__large {
+  padding: var(--core-stack-margin-large);
+}
+.core-card__padding__medium {
+  padding: var(--core-stack-margin-medium);
+}
+.core-card__padding__small {
+  padding: var(--core-stack-margin-small);
 }
 
 .core-card__outline {

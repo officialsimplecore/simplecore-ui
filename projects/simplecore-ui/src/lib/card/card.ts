@@ -23,6 +23,7 @@ import {
   styleUrls: ['card.scss']
 })
 export class CoreCard implements AfterViewInit, AfterViewChecked {
+  @Input() paddingSize: "extra-large" | "large" | "medium" | "small" = "extra-large";
   @Input() neumorphic: boolean = true;
   @ViewChild('cardEl') cardEl: ElementRef;
 
@@ -37,6 +38,7 @@ export class CoreCard implements AfterViewInit, AfterViewChecked {
     } else {
       this.renderer.addClass(this.cardEl.nativeElement, 'core-card__outline');
     }
+    this.renderer.addClass(this.cardEl.nativeElement, 'core-card__padding__' + this.paddingSize);
   }
 
   // Find calculated width of the object to determine how to place the box shadow
