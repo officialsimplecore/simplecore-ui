@@ -26,6 +26,8 @@ export class CoreCard implements AfterViewInit, AfterViewChecked {
   @Input() paddingSize: "extra-large" | "large" | "medium" | "small" = "extra-large";
   @Input() neumorphic: boolean = true;
   @ViewChild('cardEl') cardEl: ElementRef;
+  @Input() overridePadding: string = "";
+  @Input() topAndBottomShadow: boolean = true;
 
   private neumorphicShadowIsSet: boolean = false;
 
@@ -37,6 +39,10 @@ export class CoreCard implements AfterViewInit, AfterViewChecked {
       this.setNeumorphicShadow();
     } else {
       this.renderer.addClass(this.cardEl.nativeElement, 'core-card__outline');
+    }
+
+    if (this.overridePadding != "") {
+      this.renderer.setStyle(this.cardEl.nativeElement, 'padding', this.overridePadding);
     }
     this.renderer.addClass(this.cardEl.nativeElement, 'core-card__padding__' + this.paddingSize);
   }
@@ -53,7 +59,7 @@ export class CoreCard implements AfterViewInit, AfterViewChecked {
   }
 
   private setNeumorphicShadow(): void {
-    const offset = Math.min(this.cardEl.nativeElement.offsetHeight / 7.5, 20);
+    const offset: number = Math.min(this.cardEl.nativeElement.offsetHeight / 7.5, 20);
     if (offset !== 0) {
       this.neumorphicShadowIsSet = true;
     } else {
@@ -61,7 +67,16 @@ export class CoreCard implements AfterViewInit, AfterViewChecked {
     }
     const blurOffset = offset * 1.5;
     this.renderer.setStyle(this.cardEl.nativeElement,
-      'box-shadow', `0px ${offset}px ${blurOffset}px rgba(0,0,0,0.12),
-              -0px -${offset}px ${blurOffset}px rgba(255,255,255,0.85)`);
+      'box-shadow', this.buildBoxShadowString(this.topAndBottomShadow, offset, blurOffset));
+  }
+
+  private buildBoxShadowString(topAndBottomShadow: boolean, offset: number, blurOffset: number): string {
+    let boxShadow = `0px ${offset}px ${blurOffset}px rgba(0,0,0,0.12)`
+
+    if (topAndBottomShadow) {
+      boxShadow += `,
+              -0px -${offset}px ${blurOffset}px rgba(255,255,255,0.85)`;
+    }
+    return boxShadow;
   }
 }
