@@ -25,7 +25,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonDirective implements OnInit {
-  @Input() size: string = 'md';
+  @Input() size: "sm" | "lg" | "md" = 'md';
   @Input() themeColor: string = 'primary';
 
   constructor(private renderer: Renderer2, private element: ElementRef) {
